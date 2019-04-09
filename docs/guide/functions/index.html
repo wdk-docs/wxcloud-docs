@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5. 云函数 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.5.1. 我的第一个云函数" href="getting-started.html" />
+    <link rel="prev" title="2.4.2. 管理文件" href="../storage/console.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/index.html">2.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. 云函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openapi.html">2.5.6. 云调用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers.html">2.5.8. 定时触发器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ide.html">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+      <li>2.5. 云函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/functions/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.5. 云函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>云函数即在云端（服务器端）运行的函数。在物理设计上，一个云函数可由多个文件组成，占用一定量的 CPU 内存等计算资源；各云函数完全独立；可分别部署在不同的地区。开发者无需购买、搭建服务器，只需编写函数代码并部署到云端即可在小程序端调用，同时云函数之间也可互相调用。</p>
+<p>一个云函数的写法与一个在本地定义的 JavaScript 方法无异，代码运行在云端 Node.js 中。当云函数被小程序端调用时，定义的代码会被放在 Node.js 运行环境中执行。我们可以如在 Node.js 环境中使用 JavaScript 一样在云函数中进行网络请求等操作，而且我们还可以通过云函数后端 SDK 搭配使用多种服务，比如使用云函数 SDK 中提供的数据库和存储 API 进行数据库和存储的操作，这部分可参考数据库和存储后端 API 文档。</p>
+<p>云开发的云函数的独特优势在于与微信登录鉴权的无缝整合。当小程序端调用云函数时，云函数的传入参数中会被注入小程序端用户的 openid，开发者无需校验 openid 的正确性因为微信已经完成了这部分鉴权，开发者可以直接使用该 openid。</p>
+<p>接下来，我们将逐步学习以下内容：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openapi.html">2.5.6. 云调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="triggers.html">2.5.8. 定时触发器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide.html">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="2.5.1. 我的第一个云函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../storage/console.html" class="btn btn-neutral float-left" title="2.4.2. 管理文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

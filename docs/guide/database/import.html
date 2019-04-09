@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3.13. 数据库导入 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.3.14. 数据库导出" href="export.html" />
+    <link rel="prev" title="2.3.12. 地理位置" href="geo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. 数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.13. 数据库导入</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.3.13.1. 文件格式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.3. 数据库</a> &raquo;</li>
+        
+      <li>2.3.13. 数据库导入</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/database/import.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.3.13. 数据库导入<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>云开发控制台支持从文件导入已有的数据。目前仅支持导入 CSV、JSON 格式的文件数据。</p>
+<p>要导入数据，需打开云开发控制台，切换到 “数据库” 标签页，并选择要导入数据的集合，点击 “导入” 按钮。</p>
+<p>数据库</p>
+<p>选择要导入的 CSV 或者 JSON 文件，以及冲突处理模式，点击 “导入” 按钮即可开始导入。</p>
+<div class="section" id="id2">
+<h2>2.3.13.1. 文件格式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>JSON、CSV 文件必须是 UTF-8 的编码格式，且其内容类似 MongoDB 的导出格式，例如：</p>
+<p>JSON：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxx&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">45</span>
+<span class="p">}</span>
+<span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;yyyyyy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">21</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>CSV：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_id</span><span class="p">,</span><span class="n">age</span>
+<span class="n">xxxxxx</span><span class="p">,</span><span class="mi">45</span>
+<span class="n">yyyyyy</span><span class="p">,</span><span class="mi">21</span>
+</pre></div>
+</div>
+<p>需要注意以下几点：</p>
+<ol class="arabic simple">
+<li><p>JSON 数据不是数组，而是类似 JSON Lines，即各个记录对象之间使用 n 分隔，而非逗号；</p></li>
+<li><p>JSON 数据每个键值对的键名首尾不能是 .，例如 “.a”、”abc.”，且不能包含多个连续的 .，例如 “a..b”；</p></li>
+<li><p>键名不能重复，且不能有歧义，例如 {“a”: 1, “a”: 2} 或 {“a”: {“b”: 1}, “a.b”: 2}；</p></li>
+<li><p>时间格式须为 ISODate 格式，例如 <code class="docutils literal notranslate"><span class="pre">&quot;date&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;$date&quot;</span> <span class="pre">:</span> <span class="pre">&quot;2018-08-31T17:30:00.882Z&quot;</span> <span class="pre">}</span></code>；</p></li>
+</ol>
+<p>5. 当使用 Insert 冲突处理模式时，同一文件不能存在重复的 _id 字段，
+或与数据库已有记录相同的 _id 字段；
+6. CSV 格式的数据默认以第一行作为导入后的所有键名，余下的每一行则是与首行键名一一对应的键值记录。</p>
+<p>目前提供了 Insert、Upsert 两种冲突处理模式。Insert 模式会在导入时总是插入新记录，
+Upsert 则会判断有无该条记录，如果有则更新记录，否则就插入一条新记录。</p>
+<p>导入完成后，可以在提示信息中看到本次导入记录的情况。</p>
+<p>数据库</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="export.html" class="btn btn-neutral float-right" title="2.3.14. 数据库导出" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geo.html" class="btn btn-neutral float-left" title="2.3.12. 地理位置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

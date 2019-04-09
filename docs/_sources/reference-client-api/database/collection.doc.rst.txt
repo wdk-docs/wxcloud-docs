@@ -1,0 +1,17 @@
+:wxcloud:`Collection.doc <reference-client-api/database/collection.doc>`
+==========================================================================
+
+.. js:function:: wx.cloud.database.collection.doc(id)
+
+   获取记录的引用
+
+   :param id data: 方法接受一个 id 参数，指定需引用的记录 ID.
+   :type id: string | number
+   :returns: Document
+   :demo:
+
+      .. code-block:: js
+
+        const myTodo = db.collection('todos').doc('my-todo-id')
+
+

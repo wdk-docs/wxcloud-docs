@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3.2. 数据类型 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.3.3. 权限控制" href="permission.html" />
+    <link rel="prev" title="2.3.1. 上手云数据库" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. 数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.2. 数据类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#date">2.3.2.1. Date</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geopoint">2.3.2.2. GeoPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#null">2.3.2.3. Null</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import.html">2.3.13. 数据库导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.3. 数据库</a> &raquo;</li>
+        
+      <li>2.3.2. 数据类型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/database/data-type.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.3.2. 数据类型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>云开发数据库提供以下几种数据类型：</p>
+<ul class="simple">
+<li><p>String：字符串</p></li>
+<li><p>Number：数字</p></li>
+<li><p>Object：对象</p></li>
+<li><p>Array：数组</p></li>
+<li><p>Bool：布尔值</p></li>
+<li><p>GeoPoint：地理位置点</p></li>
+<li><p>Date：时间</p></li>
+<li><p>Null</p></li>
+</ul>
+<p>下面对几个需要额外说明的字段做下补充说明。</p>
+<div class="section" id="date">
+<h2>2.3.2.1. Date<a class="headerlink" href="#date" title="永久链接至标题">¶</a></h2>
+<p>Date 类型用于表示时间，精确到毫秒，在小程序端可用 JavaScript 内置 Date 对象创建。
+需要特别注意的是，在小程序端创建的时间是客户端时间，不是服务端时间，这意味着在小程序端的时间与服务端时间不一定吻合，
+如果需要使用服务端时间，应该用 API 中提供的 serverDate 对象来创建一个服务端当前时间的标记，
+当使用了 serverDate 对象的请求抵达服务端处理时，该字段会被转换成服务端当前的时间，更棒的是，
+我们在构造 serverDate 对象时还可通过传入一个有 offset 字段的对象来标记一个与当前服务端时间偏移 offset 毫秒的时间，
+这样我们就可以达到比如如下效果：指定一个字段为服务端时间往后一个小时。</p>
+<p>那么当我们需要使用客户端时间时，存放 Date 对象和存放毫秒数是否是一样的效果呢？
+不是的，我们的数据库有针对日期类型的优化，建议大家使用时都用 Date 或 serverDate 构造时间对象。</p>
+</div>
+<div class="section" id="geopoint">
+<h2>2.3.2.2. GeoPoint<a class="headerlink" href="#geopoint" title="永久链接至标题">¶</a></h2>
+<p>GeoPoint 类型用于表示地理位置点，用经纬度唯一标记一个点，这是一个特殊的数据存储类型。注意，如果需要对类型为地理位置的字段进行查找，一定要建立地理位置索引。</p>
+<p>具体的地理位置 API 可参考 Geo API 文档</p>
+</div>
+<div class="section" id="null">
+<h2>2.3.2.3. Null<a class="headerlink" href="#null" title="永久链接至标题">¶</a></h2>
+<p>null 相当于一个占位符，表示一个字段存在但是值为空。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="permission.html" class="btn btn-neutral float-right" title="2.3.3. 权限控制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="2.3.1. 上手云数据库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

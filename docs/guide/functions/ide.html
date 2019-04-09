@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5.11. 在开发者工具中管理云函数 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.5.12. 测试、日志与监控" href="console.html" />
+    <link rel="prev" title="2.5.10. 注意事项 &amp; FAQ" href="notice.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/index.html">2.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.5. 云函数</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openapi.html">2.5.6. 云调用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers.html">2.5.8. 定时触发器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.5. 云函数</a> &raquo;</li>
+        
+      <li>2.5.11. 在开发者工具中管理云函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/functions/ide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.5.11. 在开发者工具中管理云函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>配置云函数本地目录
+在项目根目录中可以使用 project.config.json 文件，在其中定义 cloudfunctionRoot 字段，指定本地已存在的目录作为云函数的本地根目录。</p>
+<p>云函数操作
+在云函数根目录或者云函数目录上，通过鼠标右键，我们可以唤出右键菜单，完成以下操作</p>
+<p>查看当前环境
+切换环境
+新建 Node.js 云函数
+下载线上环境的云函数列表
+下载线上环境的云函数代码并覆盖本地
+对比本地代码和线上环境的代码
+上传并部署云函数到线上环境
+查看和切换环境
+在云函数根目录上右键，在右键菜单中，可以查看当前对应的环境，同时可以切换环境，之后的所有右键菜单都是在这个环境下进行操作</p>
+<p>新建 Node.js 云函数
+在云函数根目录上右键，在右键菜单中，可以选择创建一个新的 Node.js 云函数，开发者工具在本地创建出以下目录和文件，同时在线上环境中创建出对应的云函数：</p>
+<p>云函数目录：以云函数名字命名的目录，存放该云函数的所有代码
+index.js：云函数入口文件，云函数被调用时实际执行的入口函数是 index.js 中导出的 main 方法
+package.json：npm 包定义文件，其中默认定义了最新 wx-server-sdk 依赖
+在创建成功后，工具会提示是否为该云函数立即安装本地依赖即 wx-server-sdk，如是，则工具会开启终端执行 npm install</p>
+<p>下载云函数列表
+在云函数根目录上右键，在右键菜单中，我们可以将线上环境中的云函数列表同步到本地，开发者工具会根据云函数的名字，在本地中创建出对应的云函数目录</p>
+<p>下载云函数
+在一个云函数目录上右键可以在菜单中选择下载该云函数，云函数代码会被下载到指定目录。</p>
+<p>上传并部署
+在云函数目录上右键，在右键菜单中，我们可以将云函数整体打包上传并部署到线上环境中</p>
+<p>更多设置
+我们通过右键菜单的 “更多设置” 可以进入云函数的沉浸式交互场景，在这个场景里可以完成以上所有的云函数操作，在云目录上按 ctrl 可以进行多选批量操作</p>
+<p>在下个章节，我们一起看看如何在开发云函数时进行测试、查看日志、以及查看监控。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="console.html" class="btn btn-neutral float-right" title="2.5.12. 测试、日志与监控" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="notice.html" class="btn btn-neutral float-left" title="2.5.10. 注意事项 &amp; FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

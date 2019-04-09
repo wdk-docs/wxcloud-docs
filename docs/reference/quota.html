@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.2. 资源配额 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.3. 云开发更新日志" href="changelog.html" />
+    <link rel="prev" title="3.1. 错误码" href="errcode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="errcode.html">3.1. 错误码</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. 资源配额</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">3.3. 云开发更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-cloud-sdk.html">3.3.1. 小程序基础库更新日志（云开发部分）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-server-sdk.html">3.3.2. wx-server-sdk 更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-ide.html">3.3.3. IDE 云开发 &amp; 云控制台更新日志</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">3. 参考</a> &raquo;</li>
+        
+      <li>3.2. 资源配额</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/quota.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3.2. 资源配额<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>这里列出云开发基础资源配额，API调用次数限制包含小程序端和服务端两部分</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 59%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>分类</p></th>
+<th class="head"><p>配额种类</p></th>
+<th class="head"><p>额度</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>存储</p></td>
+<td><p>容量</p></td>
+<td><p>5GB</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>下载操作次数</p></td>
+<td><p>5万/天</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>上传操作次数</p></td>
+<td><p>2万/天</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>外网下行流量</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CDN回源流量 <a class="footnote-reference brackets" href="#id8" id="id2">1</a></p></td>
+<td><p>5GB/月</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDN</p></td>
+<td><p>CDN流量</p></td>
+<td><p>5GB/月</p></td>
+</tr>
+<tr class="row-even"><td><p>云函数</p></td>
+<td><p>调用次数</p></td>
+<td><p>20万次/月</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>资源使用量GBs <a class="footnote-reference brackets" href="#id9" id="id3">2</a></p></td>
+<td><p>4万/月</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>外网出流量</p></td>
+<td><p>1GB/月</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(单个云函数)同时连接数 <a class="footnote-reference brackets" href="#id10" id="id4">3</a></p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>数量限制</p></td>
+<td><p>20个</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(单次运行)运行内存最大</p></td>
+<td><p>256MB <a class="footnote-reference brackets" href="#id11" id="id5">4</a></p></td>
+</tr>
+<tr class="row-even"><td><p>数据库</p></td>
+<td><p>容量</p></td>
+<td><p>2GB</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>QPS</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>同时连接数 <a class="footnote-reference brackets" href="#id12" id="id6">5</a></p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>读操作次数</p></td>
+<td><p>5万/天</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>写操作次数</p></td>
+<td><p>3万/天</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>集合限制</p></td>
+<td><p>100个</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>单集合索引限制</p></td>
+<td><p>10个</p></td>
+</tr>
+</tbody>
+</table>
+<p>以上均是一个环境的配额，不是所有环境的总和限制。</p>
+<p>如需申请上调，开发者可以”申请调整小程序云开发调用资源上限”为主题， <a class="reference external" href="mailto:miniprogram&#37;&#52;&#48;tencent&#46;com">发送邮件</a>  申请调整，
+并在正文中注明小程序帐号AppID、需要调整的环境名称、需要调整的资源上限(仅限资源配额中所列内容)、小程序服务类目(可在小程序基本设置中查询)、
+资源调整原因以及产品计划上线时间。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>小程序·云开发将在2019年春节期间2月3日至2月11日暂停资源配额调整申请处理。2月3日至2月11日提交的申请将在2月12日统一处理。请各位开发者合理安排申请时间，避免影响功能迭代。</p>
+</div>
+<p>注：</p>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>指开启了CDN加速后，CDN回源存储时产生的流量。</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>资源使用量=函数配置内存X运行计费时长。用户资源使用量，是由函数配置内存，乘以函数运行时的计费时长得出，其中配置内存转换为GB单位，计费时长由毫秒(ms)转换为秒。(s)单位，因此，资源使用量的计算单位为GBs(GB-秒)。例如，配置为256MB的函数，单次运行了1760ms，计费时长为1800ms，则单次运行的资源使用量为(256/1024)*(1800/1000)=0.45GBs。针对函数的每次运行，均会计算资源使用量，并按月汇总求和，作为当月的资源使用量。</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>云函数并发运行数量，如同时有三十个云函数调用请求，则有二十个会同时执行，剩下十个请求会被拒绝；每个云环境分别有一个同时连接数限制、独立计数。</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dd><p>云函数运行时最大可用内存为256MB，在控制台云函数运行日志中展示的内存信息是当次运行实际内存占用，可能低于256MB，计费时按配置内存即256MB计算。</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
+<dd><p>数据库请求并发数量，如同时有三十个数据库操作请求，则有二十个会同时执行，剩下十个在队列中等待有空余资源再执行；小程序端和云函数端发起的数据库操作算入同一个同时连接数限制，每个云环境分别有一个同时连接数限制、独立计数。</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="3.3. 云开发更新日志" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="errcode.html" class="btn btn-neutral float-left" title="3.1. 错误码" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

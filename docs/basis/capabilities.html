@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. 云开发能力 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1.3. 插件中使用云开发" href="plugin.html" />
+    <link rel="prev" title="1.1. 起步" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. 基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">1.1. 起步</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. 云开发能力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2.1. 数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2.2. 存储</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.2.3. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">1.3. 插件中使用云开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. 基础</a> &raquo;</li>
+        
+      <li>1.2. 云开发能力</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/basis/capabilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1.2. 云开发能力<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>小程序·云开发提供了三个基础能力：数据库、存储和云函数，这一章节我们介绍下这几个能力分别是什么，我们能用他来做什么。</p>
+<div class="section" id="id2">
+<h2>1.2.1. 数据库<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>云开发提供了一个 JSON 数据库，顾名思义，数据库中的每条记录都是一个 JSON 格式的对象。
+一个数据库可以有多个集合（相当于关系型数据中的表），集合可看做一个 JSON 数组，数组中的每个对象就是一条记录，记录的格式是 JSON 对象。</p>
+<p>关系型数据库和 JSON 数据库的概念对应关系如下表：</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>关系型</p></th>
+<th class="head"><p>文档型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>数据库 database</p></td>
+<td><p>数据库 database</p></td>
+</tr>
+<tr class="row-odd"><td><p>表 table</p></td>
+<td><p>集合 collection</p></td>
+</tr>
+<tr class="row-even"><td><p>行 row</p></td>
+<td><p>记录 record / doc</p></td>
+</tr>
+<tr class="row-odd"><td><p>列 column</p></td>
+<td><p>字段 field</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下是一个示例的集合数据，假设我们有一个 books 集合存放了图书记录，其中有两本书：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;Wzh76lk5_O_dt0vO&#39;</span><span class="p">,</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;The Catcher in the Rye&#39;</span><span class="p">,</span>
+    <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;J. D. Salinger&#39;</span><span class="p">,</span>
+    <span class="nx">characters</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;Holden Caulfield&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;Stradlater&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;Mr. Antolini&#39;</span>
+    <span class="p">],</span>
+    <span class="nx">publishInfo</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">year</span><span class="o">:</span> <span class="mi">1951</span><span class="p">,</span>
+      <span class="nx">country</span><span class="o">:</span> <span class="s1">&#39;United States&#39;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;Wzia0lk5_O_dt0vR&#39;</span><span class="p">,</span>
+    <span class="nx">_openid</span><span class="o">:</span> <span class="s1">&#39;ohl4L0Rnhq7vmmbT_DaNQa4ePaz0&#39;</span><span class="p">,</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;The Lady of the Camellias&#39;</span><span class="p">,</span>
+    <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Alexandre Dumas fils&#39;</span><span class="p">,</span>
+    <span class="nx">characters</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;Marguerite Gautier&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;Armand Duval&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;Prudence&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;Count de Varville&#39;</span>
+    <span class="p">],</span>
+    <span class="nx">publishInfo</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">year</span><span class="o">:</span> <span class="mi">1848</span><span class="p">,</span>
+      <span class="nx">country</span><span class="o">:</span> <span class="s1">&#39;France&#39;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>在图书信息中，我们用 title, author 来记录图书标题和作者，用 characters 数组来记录书中的主要人物，用 publishInfo 来记录图书的出版信息。在其中我们可以看到，字段既可以是字符串或数字，还可以是对象或数组，就是一个 JSON 对象。</p>
+<p>每条记录都有一个 _id 字段用以唯一标志一条记录、一个 _openid 字段用以标志记录的创建者，即小程序的用户。需要特别注意的是，在管理端（控制台和云函数）中创建的不会有 _openid 字段，因为这是属于管理员创建的记录。开发者可以自定义 _id，但不可自定义和修改 _openid 。_openid 是在文档创建时由系统根据小程序用户默认创建的，开发者可使用其来标识和定位文档。</p>
+<p>数据库 API 分为小程序端和服务端两部分，小程序端 API 拥有严格的调用权限控制，开发者可在小程序内直接调用 API 进行非敏感数据的操作。对于有更高安全要求的数据，可在云函数内通过服务端 API 进行操作。云函数的环境是与客户端完全隔离的，在云函数上可以私密且安全的操作数据库。</p>
+<p>数据库 API 包含增删改查的能力，使用 API 操作数据库只需三步：获取数据库引用、构造查询/更新条件、发出请求。以下是一个在小程序中查询数据库的发表于美国的图书记录的例子：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 1. 获取数据库引用</span>
+<span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">()</span>
+<span class="c1">// 2. 构造查询语句</span>
+<span class="c1">// collection 方法获取一个集合的引用</span>
+<span class="c1">// where 方法传入一个对象，数据库返回集合中字段等于指定值的 JSON 文档。API 也支持高级的查询条件（比如大于、小于、in 等），具体见文档查看支持列表</span>
+<span class="c1">// get 方法会触发网络请求，往数据库取数据</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">publishInfo</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">country</span><span class="o">:</span> <span class="s1">&#39;United States&#39;</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">({</span>
+  <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 输出 [{ &quot;title&quot;: &quot;The Catcher in the Rye&quot;, ... }]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>更多的数据库的 API 的使用和数据库管理，可以参考数据库指引章节。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2.2. 存储<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>云开发提供了一块存储空间，提供了上传文件到云端、带权限管理的云端下载能力，开发者可以在小程序端和云函数端通过 API 使用云存储功能。</p>
+<p>在小程序端可以分别调用 wx.cloud.uploadFile 和 wx.cloud.downloadFile 完成上传和下载云文件操作。
+下面简单的几行代码，即可实现在小程序内让用户选择一张图片，然后上传到云端管理的功能：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 让用户选择一张图片</span>
+<span class="nx">wx</span><span class="p">.</span><span class="nx">chooseImage</span><span class="p">({</span>
+  <span class="nx">success</span><span class="o">:</span> <span class="nx">chooseResult</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 将图片上传至云存储空间</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">uploadFile</span><span class="p">({</span>
+      <span class="c1">// 指定上传到的云路径</span>
+      <span class="nx">cloudPath</span><span class="o">:</span> <span class="s1">&#39;my-photo.png&#39;</span><span class="p">,</span>
+      <span class="c1">// 指定要上传的文件的小程序临时文件路径</span>
+      <span class="nx">filePath</span><span class="o">:</span> <span class="nx">chooseResult</span><span class="p">.</span><span class="nx">tempFilePaths</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+      <span class="c1">// 成功回调</span>
+      <span class="nx">success</span><span class="o">:</span> <span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;上传成功&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+      <span class="p">},</span>
+    <span class="p">})</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>上传完成后可在控制台中看到刚上传的图片。</p>
+<p>更多的存储 API 和管理，可以参考存储指引章节。</p>
+</div>
+<div class="section" id="id4">
+<h2>1.2.3. 云函数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>云函数是一段运行在云端的代码，无需管理服务器，在开发工具内编写、一键上传部署即可运行后端代码。</p>
+<p>小程序内提供了专门用于云函数调用的 API。
+开发者可以在云函数内使用 wx-server-sdk 提供的 getWXContext 方法获取到每次调用的上下文（appid、openid 等），
+无需维护复杂的鉴权机制，即可获取天然可信任的用户登录态（openid）。</p>
+<p>比如我们如下定义一个云函数，命名为 add ，功能是将传入的两个参数 a 和 b 相加：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// index.js 是入口文件，云函数被调用时会执行该文件导出的 main 方法</span>
+<span class="c1">// event 包含了调用端（小程序端）调用该函数时传过来的参数，同时还包含了可以通过 getWXContext 方法获取的用户登录态 `openId` 和小程序 `appId` 信息</span>
+<span class="kr">const</span> <span class="nx">cloud</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">)</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span><span class="nx">userInfo</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="o">=</span> <span class="nx">event</span>
+  <span class="kr">const</span> <span class="p">{</span><span class="nx">OPENID</span><span class="p">,</span> <span class="nx">APPID</span><span class="p">}</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">getWXContext</span><span class="p">()</span> <span class="c1">// 这里获取到的 openId 和 appId 是可信的</span>
+  <span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">OPENID</span><span class="p">,</span>
+    <span class="nx">APPID</span><span class="p">,</span>
+    <span class="nx">sum</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在开发者工具中上传部署云函数后，我们在小程序中可以这么调用：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+  <span class="c1">// 需调用的云函数名</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
+  <span class="c1">// 传给云函数的参数</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="c1">// 成功回调</span>
+  <span class="nx">complete</span><span class="o">:</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span>
+<span class="p">})</span>
+<span class="c1">// 当然 promise 方式也是支持的</span>
+<span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="mi">19</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如需在云函数中操作数据库、管理云文件、调用其他云函数等操作，可使用官方提供的 npm 包 wx-server-sdk 进行操作</p>
+<p>更多的云函数管理和 API，可以参考云函数指引章节。</p>
+<p>通过这个章节，我们已经了解了云开发是什么，提供了哪些能力，能做什么，
+接下来跟着我们一起进入开发指引的章节，看看如何上手开发吧！</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugin.html" class="btn btn-neutral float-right" title="1.3. 插件中使用云开发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="1.1. 起步" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5.6. 云调用 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.5.7. 云函数本地调试功能" href="local-debug.html" />
+    <link rel="prev" title="2.5.5. 在云函数中使用 wx-server-sdk" href="wx-server-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/index.html">2.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.5. 云函数</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.6. 云调用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triggers.html">2.5.8. 定时触发器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ide.html">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.5. 云函数</a> &raquo;</li>
+        
+      <li>2.5.6. 云调用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/functions/openapi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.5.6. 云调用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>版本要求：wx-server-sdk &gt;= 0.4.0、开发者工具 &gt;= 1.02.1903251 （目前需开发版或测试版）</p>
+<p>云调用是云开发提供的基于云函数使用小程序开放接口的能力。云调用需要在云函数中通过 wx-server-sdk 使用。在云函数中使用云调用调用服务端接口无需换取 access_token，只要是在从小程序端触发的云函数中发起的云调用都经过微信自动鉴权，可以在登记权限后直接调用如发送模板消息等开放接口。</p>
+<p>使用方法
+1. 查看服务端接口是否支持云调用
+在服务端接口列表中罗列了所有的服务端接口，如果接口支持云调用，则在接口名称旁会带有 云调用 的标签。同时，在每一个服务端接口文档中，如果接口支持云调用，也会有专门的支持说明以及相应的使用文档。</p>
+<p>2. 查看接口的云调用文档
+在支持云调用的接口文档中，会分别列出 HTTPS 调用的文档及云调用的文档，云调用文档同 HTTPS 调用文档一样包含请求参数、返回值及示例。</p>
+<p>3. 为云函数声明所需调用的接口
+接着，需要配置云调用权限，每个云函数需要声明其会使用到的接口，否则无法调用，声明的方法是在云函数目录下的 config.json（如无需新建）配置文件的 permissions.openapi 字段中增加要调用的接口名，permissions.openapi 是个字符串数组字段，值必须为所需调用的服务端接口名称。在每次使用微信开发者工具上传云函数时均会根据配置更新权限。以下是一个示例的声明了使用发送模板消息接口的配置文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;openapi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;templateMessage.send&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>4. 在云函数中使用云调用
+首先云函数中需要使用版本号至少 0.4.0 的 wx-server-sdk，建议 wx-server-sdk 始终保持最新，保证云函数目录下的 package.json 的 wx-server-sdk 字段为 latest，如本地安装依赖，请执行 npm install –save <a class="reference external" href="mailto:wx-server-sdk&#37;&#52;&#48;latest">wx-server-sdk<span>&#64;</span>latest</a>。</p>
+<p>接下来，可在云函数中使用云调用 API 了。云调用 API 均挂载在 wx-server-sdk 模块的 openapi 对象下，各个开放接口类别在 openapi 对象下设二级命名空间对象（如模板消息接口的方法均在 openapi.templateMessage 下），该对象下挂载该类别下的所有开放方法（比如模板消息的发送接口是 openapi.templateMessage.send）。各接口从属的类别名称和方法名称可以通过接口名称查看，接口名称均以 &lt;类别&gt;.&lt;方法&gt; 命名，如发送模板消息的接口名称是 templateMessage.send。下面是一个给自己发送模板消息的示例：</p>
+<p>如需可直接运行的示例，请在 IDE 中创建一个云开发快速启动模板的项目，其中有包含发送模板消息的云调用的示例</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">cloud</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">)</span>
+<span class="n">cloud</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">exports</span><span class="o">.</span><span class="n">main</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">cloud</span><span class="o">.</span><span class="n">openapi</span><span class="o">.</span><span class="n">templateMessage</span><span class="o">.</span><span class="n">send</span><span class="p">({</span>
+      <span class="n">touser</span><span class="p">:</span> <span class="n">cloud</span><span class="o">.</span><span class="n">getWXContext</span><span class="p">()</span><span class="o">.</span><span class="n">OPENID</span><span class="p">,</span> <span class="o">//</span> <span class="n">通过</span> <span class="n">getWXContext</span> <span class="n">获取</span> <span class="n">OPENID</span>
+      <span class="n">page</span><span class="p">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+      <span class="n">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">keyword1</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;339208499&#39;</span>
+        <span class="p">},</span>
+        <span class="n">keyword2</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;2015年01月05日 12:30&#39;</span>
+        <span class="p">},</span>
+        <span class="n">keyword3</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;腾讯微信总部&#39;</span>
+        <span class="p">},</span>
+        <span class="n">keyword4</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;广州市海珠区新港中路397号&#39;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="n">templateId</span><span class="p">:</span> <span class="s1">&#39;TEMPLATE_ID&#39;</span><span class="p">,</span>
+      <span class="n">formId</span><span class="p">:</span> <span class="s1">&#39;FORMID&#39;</span><span class="p">,</span>
+      <span class="n">emphasisKeyword</span><span class="p">:</span> <span class="s1">&#39;keyword1.DATA&#39;</span>
+    <span class="p">})</span>
+    <span class="o">//</span> <span class="n">result</span> <span class="n">结构</span>
+    <span class="o">//</span> <span class="p">{</span> <span class="n">errCode</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">errMsg</span><span class="p">:</span> <span class="s1">&#39;openapi.templateMessage.send:ok&#39;</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span>
+  <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">错误处理</span>
+    <span class="o">//</span> <span class="n">err</span><span class="o">.</span><span class="n">errCode</span> <span class="o">!==</span> <span class="mi">0</span>
+    <span class="n">throw</span> <span class="n">err</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="local-debug.html" class="btn btn-neutral float-right" title="2.5.7. 云函数本地调试功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="wx-server-sdk.html" class="btn btn-neutral float-left" title="2.5.5. 在云函数中使用 wx-server-sdk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

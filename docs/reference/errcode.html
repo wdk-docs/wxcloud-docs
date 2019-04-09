@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1. 错误码 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.2. 资源配额" href="quota.html" />
+    <link rel="prev" title="3. 参考" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 参考</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. 错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quota.html">3.2. 资源配额</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">3.3. 云开发更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-cloud-sdk.html">3.3.1. 小程序基础库更新日志（云开发部分）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-server-sdk.html">3.3.2. wx-server-sdk 更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog-ide.html">3.3.3. IDE 云开发 &amp; 云控制台更新日志</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">3. 参考</a> &raquo;</li>
+        
+      <li>3.1. 错误码</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/errcode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3.1. 错误码<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>在使用云能力时跑出的异常（fail 回调 / Promise reject）Error 对象中会带有 errCode 和 errMsg，这里是 errCode 值的一览表。</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>错误码</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1</p></td>
+<td><p>通用错误</p></td>
+</tr>
+<tr class="row-odd"><td><p>-401001</p></td>
+<td><p>无权限使用 API</p></td>
+</tr>
+<tr class="row-even"><td><p>-401002</p></td>
+<td><p>API 传入参数错误</p></td>
+</tr>
+<tr class="row-odd"><td><p>-401003</p></td>
+<td><p>API 传入参数类型错误</p></td>
+</tr>
+<tr class="row-even"><td><p>-402001</p></td>
+<td><p>检测到循环引用</p></td>
+</tr>
+<tr class="row-odd"><td><p>-403001</p></td>
+<td><p>上传的文件超出大小上限</p></td>
+</tr>
+<tr class="row-even"><td><p>-40400x</p></td>
+<td><p>云函数调用失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>-404011</p></td>
+<td><p>云函数执行失败</p></td>
+</tr>
+<tr class="row-even"><td><p>-601004</p></td>
+<td><p>无权限使用 API</p></td>
+</tr>
+<tr class="row-odd"><td><p>-501001</p></td>
+<td><p>云端系统错误</p></td>
+</tr>
+<tr class="row-even"><td><p>-501002</p></td>
+<td><p>云端响应超时</p></td>
+</tr>
+<tr class="row-odd"><td><p>-501003</p></td>
+<td><p>请求次数超出环境配额</p></td>
+</tr>
+<tr class="row-even"><td><p>-501004</p></td>
+<td><p>请求并发数超出环境配额</p></td>
+</tr>
+<tr class="row-odd"><td><p>-501005</p></td>
+<td><p>环境信息异常</p></td>
+</tr>
+<tr class="row-even"><td><p>-501009</p></td>
+<td><p>操作的资源对象非法或不存在</p></td>
+</tr>
+<tr class="row-odd"><td><p>-502001</p></td>
+<td><p>数据库请求失败</p></td>
+</tr>
+<tr class="row-even"><td><p>-502002</p></td>
+<td><p>非法的数据库指令</p></td>
+</tr>
+<tr class="row-odd"><td><p>-502003</p></td>
+<td><p>无权限操作数据库</p></td>
+</tr>
+<tr class="row-even"><td><p>-502005</p></td>
+<td><p>集合不存在</p></td>
+</tr>
+<tr class="row-odd"><td><p>-503001</p></td>
+<td><p>云文件请求失败</p></td>
+</tr>
+<tr class="row-even"><td><p>-503002</p></td>
+<td><p>无权限访问云文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>-503003</p></td>
+<td><p>文件不存在</p></td>
+</tr>
+<tr class="row-even"><td><p>-504001</p></td>
+<td><p>云函数调用失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>-504002</p></td>
+<td><p>云函数执行失败</p></td>
+</tr>
+</tbody>
+</table>
+<p>特殊错误说明：</p>
+<p>如果 AppID 没有开通云开发服务，或刚开通云开发但还没有过准备期（十分钟），则调用 cloud.init 时会出现 cloud init error：{ errMsg: “invalid scope” } 的错误，如果是因没有开通云开发，则请先进行开通操作，如果是刚开通，请稍等十分钟再重试。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quota.html" class="btn btn-neutral float-right" title="3.2. 资源配额" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="3. 参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3.5. 插入数据 ref &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.3.6. 查询数据" href="read.html" />
+    <link rel="prev" title="2.3.4. 初始化" href="init.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. 数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import.html">2.3.13. 数据库导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.3. 数据库</a> &raquo;</li>
+        
+      <li>2.3.5. 插入数据 ref</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/database/add.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ref">
+<h1>2.3.5. 插入数据 <a class="reference external" href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/add.html">ref</a><a class="headerlink" href="#ref" title="永久链接至标题">¶</a></h1>
+<p>可以通过在集合对象上调用 add(<code class="xref js js-func docutils literal notranslate"><span class="pre">add()</span></code>) 方法往集合中插入一条记录。
+还是用待办事项清单的例子，比如我们想新增一个待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">add</span><span class="p">({</span>
+  <span class="c1">// data 字段表示需新增的 JSON 数据</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// _id: &#39;todo-identifiant-aleatoire&#39;, // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;learn cloud database&#39;</span><span class="p">,</span>
+    <span class="nx">due</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2018-09-01&#39;</span><span class="p">),</span>
+    <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;database&#39;</span>
+    <span class="p">],</span>
+    <span class="c1">// 为待办事项添加一个地理位置（113°E，23°N）</span>
+    <span class="nx">location</span><span class="o">:</span> <span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Geo</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mi">113</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// res 是一个对象，其中有 _id 字段标记刚创建的记录的 id</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>当然，Promise 风格也是支持的，只要传入对象中没有 success, fail 或 complete，那么 add 方法就会返回一个 Promise：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">add</span><span class="p">({</span>
+  <span class="c1">// data 字段表示需新增的 JSON 数据</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;learn cloud database&#39;</span><span class="p">,</span>
+    <span class="nx">due</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2018-09-01&#39;</span><span class="p">),</span>
+    <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;database&#39;</span>
+    <span class="p">],</span>
+    <span class="nx">location</span><span class="o">:</span> <span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Geo</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mi">113</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+<p>数据库的增删查改 API 都同时支持回调风格和 Promise 风格调用。</p>
+<p>在创建成功之后，我们可以在控制台中查看到刚新增的数据。</p>
+<p>可以在 <span class="xref std std-ref">add API 文档</span> 中查阅完整的 API 定义。</p>
+<p>在下一章节，我们将学习如何使用 API 查询到刚插入的数据。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="read.html" class="btn btn-neutral float-right" title="2.3.6. 查询数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="init.html" class="btn btn-neutral float-left" title="2.3.4. 初始化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

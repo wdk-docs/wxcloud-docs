@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. 初始化 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2.3. 数据库" href="database/index.html" />
+    <link rel="prev" title="2.1. 控制台" href="console.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="console.html">2.1. 控制台</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/index.html">2.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 指引</a> &raquo;</li>
+        
+      <li>2.2. 初始化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guide/init.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.2. 初始化<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>在小程序端开始使用云能力前，需先调用 wx.cloud.init 方法完成云能力初始化（注意小程序需先开通云服务，开通的方法是点击工具栏左上角的 “控制台” 按钮）。因此，如果要使用云能力，通常我们在小程序初始化时即调用这个方法。</p>
+<p>wx.cloud.init 方法的定义如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+</pre></div>
+</div>
+<p>wx.cloud.init 方法接受一个可选的 options 参数，方法没有返回值。</p>
+<p>options 参数定义了云开发的默认配置，该配置会作为之后调用其他所有云 API 的默认配置，options 提供的可选配置如下：</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>数据类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>默认值</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>env</p></td>
+<td><p>string  object</p></td>
+<td><p>否</p></td>
+<td><p>default</p></td>
+<td><p>默认环境配置
+，传入字符串形式的环境 ID 可以指定所有服务的默认环境，
+传入对象可以分别指定各个服务的默认环境，见下方详细定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>traceUser</p></td>
+<td><p>boolean</p></td>
+<td><p>否</p></td>
+<td><p>false</p></td>
+<td><p>是否在将用户访问记录到用户管理中，在控制台中可见</p></td>
+</tr>
+</tbody>
+</table>
+<p>当 env 传入参数为对象时，可以指定各个服务的默认环境，可选字段如下：</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>数据类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>默认值</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>database</p></td>
+<td><p>string</p></td>
+<td><p>否</p></td>
+<td><p>default</p></td>
+<td><p>数据库 API 默认环境配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>storage</p></td>
+<td><p>string</p></td>
+<td><p>否</p></td>
+<td><p>default</p></td>
+<td><p>存储 API 默认环境配置</p></td>
+</tr>
+<tr class="row-even"><td><p>functions</p></td>
+<td><p>string</p></td>
+<td><p>否</p></td>
+<td><p>default</p></td>
+<td><p>云函数 API 默认环境配置</p></td>
+</tr>
+</tbody>
+</table>
+<p>示例代码：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="nx">env</span><span class="o">:</span> <span class="s1">&#39;test-x1dzi&#39;</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>API 风格
+云开发的 API 风格与框架组件和 API 风格一致，但同时支持回调风格和Promise风格。在传入 API 的 Object 参数中，如果传入了 success、fail、complete 字段，则我们认为是采用回调风格，API 方法调用不返回 Promise。如果传入 API 的 Object 参数中 success、fail、complete 这三个字段都不存在，则我们认为是采用Promise风格，API 方法调用返回一个 Promise，Promise resolve 的结果同传入 success 回调的参数，reject 的结果同传入 fail 的参数。</p>
+<p>接下来我们分别看看如何使用数据库、存储和云函数。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="database/index.html" class="btn btn-neutral float-right" title="2.3. 数据库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="console.html" class="btn btn-neutral float-left" title="2.1. 控制台" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

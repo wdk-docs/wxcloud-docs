@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3.8. 查询数组和对象 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.3.9. 更新数据" href="update.html" />
+    <link rel="prev" title="2.3.7. 指令" href="query.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. 数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.8. 查询数组和对象</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.3.8.1. 普通匹配</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.3.8.2. 匹配记录中的嵌套字段</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.3.8.3. 匹配多重嵌套的数组和对象</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import.html">2.3.13. 数据库导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.3. 数据库</a> &raquo;</li>
+        
+      <li>2.3.8. 查询数组和对象</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/database/query-array-object.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.3.8. 查询数组和对象<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>我们可以对对象、对象中的元素、数组、数组中的元素进行匹配查询，甚至还可以对数组和对象相互嵌套的字段进行匹配查询，
+下面我们从普通匹配开始讲讲如何进行匹配。</p>
+<div class="section" id="id2">
+<h2>2.3.8.1. 普通匹配<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>传入的对象的每个 &lt;key, value&gt; 构成一个筛选条件，有多个 &lt;key, value&gt; 则表示需同时满足这些条件，是与的关系，
+如果需要或关系，可使用 [command.or](./command.or.md)</p>
+<p>比如找出未完成的进度 50 的待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">progress</span><span class="o">:</span> <span class="mi">50</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.3.8.2. 匹配记录中的嵌套字段<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>假设在集合中有如下一个记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果我们想要找出集合中 style.color 为 red 的记录，那么可以传入相同结构的对象做查询条件或使用 ”点表示法“ 查询：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 方式一</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+
+<span class="c1">// 方式二</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="s1">&#39;style.color&#39;</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>匹配数组、匹配数组中元素、匹配数组第 n 项元素、结合查询指令进行匹配</p>
+<div class="section" id="id4">
+<h3>2.3.8.2.1. 匹配数组<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>假设在集合中有如下一个记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;numbers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>可以传入一个完全相同的数组来筛选出这条记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">numbers</span><span class="o">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>2.3.8.2.2. 匹配数组中的元素<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>如果想找出数组字段中数组值包含某个值的记录，那可以在匹配数组字段时传入想要匹配的值。如对上面的例子，
+可传入一个数组中存在的元素来筛选出所有 numbers 字段的值包含 20 的记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">numbers</span><span class="o">:</span> <span class="mi">20</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="n">
+<h3>2.3.8.2.3. 匹配数组第 n 项元素<a class="headerlink" href="#n" title="永久链接至标题">¶</a></h3>
+<p>如果想找出数组字段中数组的第 n 个元素等于某个值的记录，那在 &lt;key, value&gt; 匹配中可以以 字段.下标 为 key，
+目标值为 value 来做匹配。如对上面的例子，如果想找出 number 字段第二项的值为 20 的记录，可以如下查询（注意：数组下标从 0 开始）</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="s1">&#39;numbers.1&#39;</span><span class="o">:</span> <span class="mi">20</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2.3.8.2.4. 结合查询指令进行匹配<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>在对数组字段进行匹配时，也可以使用如 lt, gt 等指令，来筛选出字段数组中存在满足给定比较条件的记录。
+如对上面的例子，可查找出所有 numbers 字段的数组值中存在包含大于 25 的值的记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">numbers</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>查询指令也可以通过逻辑指令组合条件，比如找出所有 numbers 数组中存在包含大于 25 的值、同时也存在小于 15 的值的记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">numbers</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">25</span><span class="p">).</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>2.3.8.3. 匹配多重嵌套的数组和对象<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>上面所讲述的所有规则都可以嵌套使用的，假设我们在集合中有如下一个记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;root&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;objects&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;numbers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;numbers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>我们可以如下找出集合中所有的满足 root.objects 字段数组的第二项的 numbers 字段的第三项等于 70 的记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="s1">&#39;root.objects.1.numbers.2&#39;</span><span class="o">:</span> <span class="mi">70</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>注意，指定下标不是必须的，比如可以如下找出集合中所有的满足 root.objects 字段数组中任意一项的 numbers 字段包含 30 的记录：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="s1">&#39;root.objects.numbers&#39;</span><span class="o">:</span> <span class="mi">30</span>
+<span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="update.html" class="btn btn-neutral float-right" title="2.3.9. 更新数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="query.html" class="btn btn-neutral float-left" title="2.3.7. 指令" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

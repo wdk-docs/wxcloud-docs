@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5.8. 定时触发器 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.5.9. 运行机制" href="mechanism.html" />
+    <link rel="prev" title="2.5.7. 云函数本地调试功能" href="local-debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/index.html">2.3. 数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.5. 云函数</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openapi.html">2.5.6. 云调用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.8. 定时触发器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ide.html">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.5. 云函数</a> &raquo;</li>
+        
+      <li>2.5.8. 定时触发器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/functions/triggers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.5.8. 定时触发器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>该功能需开发者工具 1.02.1811270 及以上版本方可使用</p>
+<p>如果云函数需要定时 / 定期执行，也就是定时触发，我们可以使用云函数定时触发器。配置了定时触发器的云函数，会在相应时间点被自动触发，函数的返回结果不会返回给调用方。</p>
+<p>在需要添加触发器的云函数目录下新建文件 config.json，格式如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+  // triggers 字段是触发器数组，目前仅支持一个触发器，即数组只能填写一个，不可添加多个
+  &quot;triggers&quot;: [
+    {
+      // name: 触发器的名字，规则见下方说明
+      &quot;name&quot;: &quot;myTrigger&quot;,
+      // type: 触发器类型，目前仅支持 timer (即 定时触发器)
+      &quot;type&quot;: &quot;timer&quot;,
+      // config: 触发器配置，在定时触发器下，config 格式为 cron 表达式，规则见下方说明
+      &quot;config&quot;: &quot;0 0 2 1 * * *&quot;
+    }
+  ]
+}
+</pre></div>
+</div>
+<p>字段规则：</p>
+<p>定时触发器名称 (name)：最大支持 60 个字符，支持 a-z, A-Z, 0-9, - 和 _。必须以字母开头，且一个函数下不支持同名的多个定时触发器。
+定时触发器触发周期 (config)：指定的函数触发时间。填写自定义标准的 cron 表达式来决定何时触发函数。有关 cron 表达式的更多信息，请参考下面的内容。
+Cron 表达式
+Cron 表达式有七个必需字段，按空格分隔。</p>
+<p>第一位     第二位     第三位     第四位     第五位     第六位     第七位
+秒       分钟      小时      日       月       星期      年
+其中，每个字段都有相应的取值范围：</p>
+<p>字段      值       通配符
+秒       0-59 的整数        , - * /
+分钟      0-59 的整数        , - * /
+小时      0-23 的整数        , - * /
+日       1-31 的整数（需要考虑月的天数）      , - * /
+月       1-12 的整数 或 JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC      , - * /
+星期      0-6 的整数 或 MON,TUE,WED,THU,FRI,SAT,SUN；其中 0 指星期一，1 指星期二，依次类推     , - * /
+年       1970~2099 的整数   , - * /
+通配符</p>
+<p>通配符     含义
+, (逗号)  代表取用逗号隔开的字符的并集。例如：在“小时”字段中 1,2,3 表示1点、2点和3点
+- (破折号) 包含指定范围的所有值。例如：在“日”字段中，1-15 包含指定月份的 1 号到 15 号
+* (星号)  表示所有值。在“小时”字段中，* 表示每个小时
+/ (正斜杠) 指定增量。在“分钟”字段中，输入 1/10 以指定从第一分钟开始的每隔十分钟重复。例如，第 11 分钟、第 21 分钟和第 31 分钟，依此类推
+注意事项</p>
+<p>在 Cron 表达式中的“日”和“星期”字段同时指定值时，两者为“或”关系，即两者的条件分别均生效。
+示例</p>
+<p>下面展示了一些 Cron 表达式和相关含义的示例：</p>
+<p><a href="#id2"><span class="problematic" id="id3">*</span></a>/5 * * * * * * 表示每5秒触发一次
+0 0 2 1 * * * 表示在每月的1日的凌晨2点触发
+0 15 10 * * MON-FRI * 表示在周一到周五每天上午10:15触发
+0 0 10,14,16 * * * * 表示在每天上午10点，下午2点，4点触发
+0 <a href="#id4"><span class="problematic" id="id5">*</span></a>/30 9-17 * * * * 表示在每天上午9点到下午5点内每半小时触发
+0 0 12 * * WED * 表示在每个星期三中午12点触发
+在下一章节，我们一起了解下云函数的运行机制。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mechanism.html" class="btn btn-neutral float-right" title="2.5.9. 运行机制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="local-debug.html" class="btn btn-neutral float-left" title="2.5.7. 云函数本地调试功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

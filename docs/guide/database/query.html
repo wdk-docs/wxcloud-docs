@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3.7. 指令 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="2.3.8. 查询数组和对象" href="query-array-object.html" />
+    <link rel="prev" title="2.3.6. 查询数据" href="read.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">2. 指引</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../console.html">2.1. 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../init.html">2.2. 初始化</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2.3. 数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.7. 指令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.3.7.1. 查询指令</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.3.7.2. 逻辑指令</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import.html">2.3.13. 数据库导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/index.html">2.4. 存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">2.5. 云函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">2. 指引</a> &raquo;</li>
+        
+          <li><a href="index.html">2.3. 数据库</a> &raquo;</li>
+        
+      <li>2.3.7. 指令</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide/database/query.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.3.7. 指令<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>使用数据库 API 提供的 where 方法我们可以构造复杂的查询条件完成复杂的查询任务。在本节中我们还是使用上一章节中使用的示例数据。</p>
+<div class="section" id="id2">
+<h2>2.3.7.1. 查询指令<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>假设我们需要查询进度大于 30% 的待办事项，那么传入对象表示全等匹配的方式就无法满足了，这时就需要用到查询指令。数据库 API 提供了大于、小于等多种查询指令，这些指令都暴露在 db.command 对象上。比如查询进度大于 30% 的待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="c1">// gt 方法用于指定一个 &quot;大于&quot; 条件，此处 _.gt(30) 是一个 &quot;大于 30&quot; 的条件</span>
+  <span class="nx">progress</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+    <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+<p>API 提供了以下查询指令：</p>
+<p>查询指令    说明
+eq      等于
+neq     不等于
+lt      小于
+lte     小于或等于
+gt      大于
+gte     大于或等于
+in      字段值在给定数组中
+nin     字段值不在给定数组中
+更多具体的查询指令 API 文档可参考数据库 API 文档。</p>
+</div>
+<div class="section" id="id3">
+<h2>2.3.7.2. 逻辑指令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>除了指定一个字段满足一个条件之外，我们还可以通过指定一个字段需同时满足多个条件，比如用 and 逻辑指令查询进度在 30% 和 70% 之间的待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="c1">// and 方法用于指定一个 &quot;与&quot; 条件，此处表示需同时满足 _.gt(30) 和 _.lt(70) 两个条件</span>
+  <span class="nx">progress</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+    <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+<p>既然有 and，当然也有 or 了，比如查询进度为 0 或 100 的待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="c1">// or 方法用于指定一个 &quot;或&quot; 条件，此处表示需满足 _.eq(0) 或 _.eq(100)</span>
+  <span class="nx">progress</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">or</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+    <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+<p>如果我们需要跨字段进行 “或” 操作，可以做到吗？答案是肯定的，or 指令还可以用来接受多个（可以多于两个）查询条件，
+表示需满足多个查询条件中的任意一个，比如我们查询进度小于或等于 50% 或颜色为白色或黄色的待办事项：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">or</span><span class="p">([</span>
+  <span class="p">{</span>
+    <span class="nx">progress</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">lte</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="k">in</span><span class="p">([</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">])</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]))</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+    <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+</pre></div>
+</div>
+<p>具体的逻辑查询指令 API 文档可参考数据库 API 文档。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="query-array-object.html" class="btn btn-neutral float-right" title="2.3.8. 查询数组和对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="read.html" class="btn btn-neutral float-left" title="2.3.6. 查询数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
