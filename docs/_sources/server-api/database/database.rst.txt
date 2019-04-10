@@ -1,0 +1,7 @@
+database
+============
+
+.. js:function:: cloud.database([{[env]}])
+
+   :param string env: 环境 ID.
+

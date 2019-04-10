@@ -1,0 +1,25 @@
+集合 (Collection) 对象 API
+==========================
+
+获取集合的引用
+
+.. js:function:: wx.cloud.database.doc(name)
+
+   :param string name: 引用的集合名称
+   :rtype: Collection
+   :示例:
+
+      .. code:: js
+
+        const db = wx.cloud.database()
+        const todosCollection = db.collection('todos')
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   get
+   remove
+   set
+   update
+

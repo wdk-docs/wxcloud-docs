@@ -1,0 +1,18 @@
+db.command.lte
+查询筛选条件，表示字段需小于或等于指定值。可以传入 Date 对象用于进行日期比较。
+
+方法签名：
+
+function lte(value: number | Date): Command
+示例代码
+
+找出进度小于或等于 50 的 todo
+
+const _ = db.command
+db.collection('todos').where({
+  progress: _.lte(50)
+})
+  .get({
+    success: console.log,
+    fail: console.error
+  })

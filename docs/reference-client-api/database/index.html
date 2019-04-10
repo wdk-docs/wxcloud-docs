@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2. 数据库 API &mdash; wxcloud 2019.04.09 文档</title>
+  <title>4.2. 小程序端 API &mdash; wxcloud 2019.04.09 文档</title>
   
 
   
@@ -87,14 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">4. 小程序端 API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../init.html">4.1. 初始化 wx.cloud.init</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. 数据库 API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">4.2.1. 触发网络请求的 API 有如下几个：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">4.2.2. 获取引用的 API 有如下几个：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#database">4.2.3. 在数据库 (Database) 对象上有如下字段：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#collection-api">4.2.4. 在集合 (Collection) 对象上有如下 API：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#document-api">4.2.5. 在记录 (Document) 对象上有如下 API：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-db-command">4.2.6. Command (db.command) 对象上有如下查询指令：</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">4.2.7. Command (db.command) 对象上有如下更新指令：</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. 小程序端 API</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../storage/index.html">4.3. 存储 API</a></li>
@@ -102,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../component/index.html">4.5. 组件支持</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference-server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">5. 术语表</a></li>
 </ul>
 
             
@@ -150,7 +143,7 @@
         
           <li><a href="../index.html">4. 小程序端 API</a> &raquo;</li>
         
-      <li>4.2. 数据库 API</li>
+      <li>4.2. 小程序端 API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,289 +163,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="api">
-<h1>4.2. 数据库 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<h1>4.2. 小程序端 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
 <dl class="function">
-<dt id="wx.cloud.database">
-<code class="descclassname">wx.cloud.</code><code class="descname">database</code><span class="sig-paren">(</span><span class="optional">[</span><em>{[env]}</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#wx.cloud.database" title="永久链接至目标">¶</a></dt>
-<dd><p>获取数据库的引用</p>
-<dl class="field-list">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>env</strong> (<em>string</em>) – 环境 ID</p></li>
-</ul>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>Database</p>
-</dd>
-<dt class="field-odd">Demo</dt>
-<dd class="field-odd"><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-</dl>
+<dt id="wx.cloud">
+<code class="descclassname">wx.</code><code class="descname">cloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wx.cloud" title="永久链接至目标">¶</a></dt>
+<dd><p>小程序端云函数</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="wx.cloud.database.collection">
-<code class="descclassname">wx.cloud.database.</code><code class="descname">collection</code><span class="sig-paren">(</span><em>name: string</em><span class="sig-paren">)</span><a class="headerlink" href="#wx.cloud.database.collection" title="永久链接至目标">¶</a></dt>
-<dd><p>获取集合的引用</p>
-<dl class="field-list">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>string</em>) – 指定需引用的集合名称</p></li>
-</ul>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>Collection</p>
-</dd>
-<dt class="field-odd">Demo</dt>
-<dd class="field-odd"><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<p>小程序·云开发提供了丰富的数据库操作 API，此处是数据库小程序端的 API 参考文档。</p>
-<p>数据库 API 都是懒执行的，这意味着只有真实需要网络请求的 API 调用才会发起网络请求，
-其余如获取数据库、集合、记录的引用、在集合上构造查询条件等都是不会触发网络请求的。</p>
-<div class="section" id="id1">
-<h2>4.2.1. 触发网络请求的 API 有如下几个：<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>get</p></td>
-<td><p>获取集合 / 记录数据</p></td>
-</tr>
-<tr class="row-odd"><td><p>add</p></td>
-<td><p>在集合上新增记录</p></td>
-</tr>
-<tr class="row-even"><td><p>update</p></td>
-<td><p>更新集合 / 记录数据</p></td>
-</tr>
-<tr class="row-odd"><td><p>set</p></td>
-<td><p>替换更新一个记录</p></td>
-</tr>
-<tr class="row-even"><td><p>remove</p></td>
-<td><p>删除记录</p></td>
-</tr>
-<tr class="row-odd"><td><p>count</p></td>
-<td><p>统计查询语句对应的记录条数</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id2">
-<h2>4.2.2. 获取引用的 API 有如下几个：<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>database</p></td>
-<td><p>获取数据库引用，返回 Database 对象</p></td>
-</tr>
-<tr class="row-odd"><td><p>collection</p></td>
-<td><p>获取集合引用，返回 Collection 对象</p></td>
-</tr>
-<tr class="row-even"><td><p>doc</p></td>
-<td><p>获取对一个记录的引用，返回 Document 对象</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="database">
-<h2>4.2.3. 在数据库 (Database) 对象上有如下字段：<a class="headerlink" href="#database" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>字段</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>command</p></td>
-<td><p>获取数据库查询及更新指令，返回 Command</p></td>
-</tr>
-<tr class="row-odd"><td><p>serverDate</p></td>
-<td><p>构造服务端时间</p></td>
-</tr>
-<tr class="row-even"><td><p>Geo</p></td>
-<td><p>获取地理位置操作对象，返回 Geo 对象</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="collection-api">
-<h2>4.2.4. 在集合 (Collection) 对象上有如下 API：<a class="headerlink" href="#collection-api" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 46%" />
-<col style="width: 54%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="collection.doc.html#wx.cloud.database.collection.doc" title="wx.cloud.database.collection.doc"><code class="xref js js-func docutils literal notranslate"><span class="pre">doc</span></code></a></p></td>
-<td><p>获取对一个记录的引用，返回 Document 对象</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="collection.add.html#wx.cloud.database.collection.add" title="wx.cloud.database.collection.add"><code class="xref js js-func docutils literal notranslate"><span class="pre">add</span></code></a></p></td>
-<td><p>在集合上新增记录</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref js js-func docutils literal notranslate"><span class="pre">where</span></code></p></td>
-<td><p>构建一个在当前集合上的查询条件，返回 Query，查询条件中可使用查询指令</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref js js-func docutils literal notranslate"><span class="pre">orderBy</span></code></p></td>
-<td><p>指定查询数据的排序方式</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref js js-func docutils literal notranslate"><span class="pre">limit</span></code></p></td>
-<td><p>指定返回数据的数量上限</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref js js-func docutils literal notranslate"><span class="pre">skip</span></code></p></td>
-<td><p>指定查询时从命中的记录列表中的第几项之后开始返回</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref js js-func docutils literal notranslate"><span class="pre">field</span></code></p></td>
-<td><p>指定返回结果中每条记录应包含的字段</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="document-api">
-<h2>4.2.5. 在记录 (Document) 对象上有如下 API：<a class="headerlink" href="#document-api" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>get</p></td>
-<td><p>获取记录数据</p></td>
-</tr>
-<tr class="row-odd"><td><p>update</p></td>
-<td><p>局部更新数据</p></td>
-</tr>
-<tr class="row-even"><td><p>set</p></td>
-<td><p>替换更新记录</p></td>
-</tr>
-<tr class="row-odd"><td><p>remove</p></td>
-<td><p>删除记录</p></td>
-</tr>
-<tr class="row-even"><td><p>field</p></td>
-<td><p>指定返回结果中记录应包含的字段</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="command-db-command">
-<h2>4.2.6. Command (db.command) 对象上有如下查询指令：<a class="headerlink" href="#command-db-command" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>eq</p></td>
-<td><p>字段是否等于指定值</p></td>
-</tr>
-<tr class="row-odd"><td><p>neq</p></td>
-<td><p>字段是否不等于指定值</p></td>
-</tr>
-<tr class="row-even"><td><p>lt</p></td>
-<td><p>字段是否小于指定值</p></td>
-</tr>
-<tr class="row-odd"><td><p>lte</p></td>
-<td><p>字段是否小于或等于指定值</p></td>
-</tr>
-<tr class="row-even"><td><p>gt</p></td>
-<td><p>字段是否大于指定值</p></td>
-</tr>
-<tr class="row-odd"><td><p>gte</p></td>
-<td><p>字段是否大于或等于指定值</p></td>
-</tr>
-<tr class="row-even"><td><p>in</p></td>
-<td><p>字段值是否在指定数组中</p></td>
-</tr>
-<tr class="row-odd"><td><p>nin</p></td>
-<td><p>字段值是否不在指定数组中</p></td>
-</tr>
-<tr class="row-even"><td><p>and</p></td>
-<td><p>条件与，表示需同时满足另一个条件</p></td>
-</tr>
-<tr class="row-odd"><td><p>or</p></td>
-<td><p>条件或，表示如果满足另一个条件也匹配</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id3">
-<h2>4.2.7. Command (db.command) 对象上有如下更新指令：<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 82%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>API</p></th>
-<th class="head"><p>说明</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>set</p></td>
-<td><p>设置字段为指定值</p></td>
-</tr>
-<tr class="row-odd"><td><p>remove</p></td>
-<td><p>删除字段</p></td>
-</tr>
-<tr class="row-even"><td><p>inc</p></td>
-<td><p>原子自增字段值</p></td>
-</tr>
-<tr class="row-odd"><td><p>mul</p></td>
-<td><p>原子自乘字段值</p></td>
-</tr>
-<tr class="row-even"><td><p>push</p></td>
-<td><p>如字段值为数组，往数组尾部增加指定值</p></td>
-</tr>
-<tr class="row-odd"><td><p>pop</p></td>
-<td><p>如字段值为数组，从数组尾部删除一个元素</p></td>
-</tr>
-<tr class="row-even"><td><p>shift</p></td>
-<td><p>如字段值为数组，从数组头部删除一个元素</p></td>
-</tr>
-<tr class="row-odd"><td><p>unshift</p></td>
-<td><p>如字段值为数组，往数组头部增加指定值</p></td>
-</tr>
-</tbody>
-</table>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 

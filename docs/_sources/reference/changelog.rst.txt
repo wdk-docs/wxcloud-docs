@@ -1,14 +1,6 @@
 云开发更新日志
 ===============
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   changelog-cloud-sdk
-   changelog-server-sdk
-   changelog-ide
-
 最新更新
 ----------
 

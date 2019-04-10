@@ -1,0 +1,2 @@
+db.command.neq
+表示字段不等于某个值，和 db.command.eq 相反

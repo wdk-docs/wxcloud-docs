@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>add &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">6. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>add</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/server-api/database/database/collection/add.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="add">
+<h1><a class="reference external" href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/database/collection.add.html">add</a><a class="headerlink" href="#add" title="永久链接至标题">¶</a></h1>
+<dl class="function">
+<dt id="wx.cloud.database.collection.add">
+<code class="descclassname">wx.cloud.database.collection.</code><code class="descname">add</code><span class="sig-paren">(</span><em>{data[,sucess][,fail][,complete]}</em><span class="sig-paren">)</span><a class="headerlink" href="#wx.cloud.database.collection.add" title="永久链接至目标">¶</a></dt>
+<dd><p>在集合上新增记录</p>
+<dl class="field-list">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>object</em>) – 新增记录的定义.</p></li>
+<li><p><strong>success(Result)</strong> (<em>Function</em>) – 成功回调，回调传入的参数 Result 定义同返回结果</p></li>
+<li><p><strong>fail</strong> (<em>Function</em>) – 失败回调</p></li>
+<li><p><strong>complete</strong> (<em>Function</em>) – 调用结束的回调函数（调用成功、失败都会执行）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型</dt>
+<dd class="field-even"><p>Promise or None</p>
+</dd>
+<dt class="field-odd">返回</dt>
+<dd class="field-odd"><p><p>如没有传入 <em>success</em> 、<em>fail</em> 、 <em>complete</em> 任何一个字段，
+则返回一个 <strong>Promise</strong>，否则不返回任何值。</p>
+<ul class="simple">
+<li><p>resolve 新增记录的结果，Result 定义见下方</p></li>
+<li><p>reject  失败原因</p></li>
+</ul>
+<p>Result 定义:</p>
+<div class="highlight-object notranslate"><div class="highlight"><pre><span></span>{
+  _id: String | Number; // 新增的记录的 ID
+}
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">示例</dt>
+<dd class="field-even"><p>新增一条待办事项：</p>
+<p>回调风格</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">add</span><span class="p">({</span>
+  <span class="c1">// data 字段表示需新增的 JSON 数据</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// _id: &#39;todo-identifiant-aleatoire&#39;, // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;learn cloud database&#39;</span><span class="p">,</span>
+    <span class="nx">due</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2018-09-01&#39;</span><span class="p">),</span>
+    <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;database&#39;</span>
+    <span class="p">],</span>
+    <span class="c1">// 为待办事项添加一个地理位置（113°E，23°N）</span>
+    <span class="nx">location</span><span class="o">:</span> <span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Geo</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mi">113</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// res 是一个对象，其中有 _id 字段标记刚创建的记录的 id</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">},</span>
+  <span class="nx">fail</span><span class="o">:</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Promise 风格</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">add</span><span class="p">({</span>
+  <span class="c1">// data 字段表示需新增的 JSON 数据</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;learn cloud database&#39;</span><span class="p">,</span>
+    <span class="nx">due</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2018-09-01&#39;</span><span class="p">),</span>
+    <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;database&#39;</span>
+    <span class="p">],</span>
+    <span class="nx">location</span><span class="o">:</span> <span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">Geo</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mi">113</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+    <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>如传入 success、fail、complete 三者之一，则表示使用回调风格，不返回 Promise。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

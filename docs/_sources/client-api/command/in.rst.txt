@@ -1,0 +1,18 @@
+db.command.in
+查询筛选条件，表示字段的值需在给定的数组内。
+
+方法签名：
+
+function in(values: any[]): Command
+示例代码
+
+找出进度为 0 或 100 的 todo
+
+const _ = db.command
+db.collection('todos').where({
+  progress: _.in([0, 100])
+})
+  .get({
+    success: console.log,
+    fail: console.error
+  })

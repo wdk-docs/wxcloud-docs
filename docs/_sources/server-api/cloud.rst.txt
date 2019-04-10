@@ -1,0 +1,10 @@
+wx-server-sdk
+======================
+
+.. js:class:: cloud()
+
+   .. js:function:: init()
+
+   .. js:function:: database()
+
+

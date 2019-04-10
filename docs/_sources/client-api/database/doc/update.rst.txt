@@ -1,0 +1,58 @@
+Document.update
+更新一条记录
+
+函数签名如下：
+
+function update(options: object): Promise<Result>
+参数说明
+
+options 为必填参数，是一个如下格式的对象，如传入 success、fail、complete 三者之一，则表示使用回调风格，不返回 Promise。
+
+字段名	类型	必填	默认值	说明
+data	Object	是		更新对象
+success	Function	否		成功回调，回调传入的参数 Result 包含查询的结果，Result 定义见下方
+fail	Function	否		失败回调
+complete	Function	否		调用结束的回调函数（调用成功、失败都会执行）
+返回值说明
+
+如传入的 options 参数没有 success、fail、complete 字段，则返回一个 Promise，否则不返回任何值。Promise 的 resolve 和 reject 的结果定义如下：
+
+结果说明
+resolve	新增记录的结果，Result 定义见下方
+reject	失败原因
+Result 说明
+
+success 回调的结果及 Promise resolve 的结果 Result 是一个如下结构的对象：
+
+字段	类型	说明
+stats	Object	更新结果的统计，其中包含的字段见下方 stats 的定义
+stats 对象是一个如下结构的对象：
+
+字段	类型	说明
+updated	number	成功更新的记录数量，在此只可能为 0 或 1
+示例代码
+
+更新待办事项，将所有未完待办事项进度加 10：
+
+回调风格
+
+db.collection('todos').doc('todo-identifiant-aleatoire').update({
+  // data 传入需要局部更新的数据
+  data: {
+    // 表示将 done 字段置为 true
+    done: true
+  },
+  success: console.log,
+  fail: console.error
+})
+Promise 风格
+
+db.collection('todos').doc('todo-identifiant-aleatoire').update({
+  // data 传入需要局部更新的数据
+  data: {
+    // 表示将 done 字段置为 true
+    done: true
+  }
+})
+  .then(console.log)
+  .catch(console.error)

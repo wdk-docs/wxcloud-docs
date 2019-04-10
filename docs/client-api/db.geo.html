@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">6. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/client-api/db.geo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>db.Geo
+该对象上含有地理位置构造器。为了使用基于地理位置的查询，必须为相应存放地理位置的地方添加地理位置索引。详见数据库指引中的地理位置章节。</p>
+<p>在使用地理位置接口时，除了使用以下提供的各种地理位置构造器外，均可使用其等价的 GeoJSON 表示法。通过地理位置构造器构造的各个对象均可调用方法 toJSON 获得其等价的 GeoJSON 纯 JS 对象。在查询结果中如果含有地理位置字段，均返回地理位置对象而不是 GeoJSON 对象。</p>
+<p>db.Geo 拥有字段如下：</p>
+<p>字段      说明
+Point   点
+LineString      线段
+Polygon 多边形
+MultiPoint      点集合
+MultiLineString 线段集合
+MultiPolygon    多边形集合
+db.Geo.Point
+构造一个地理位置 ”点“。</p>
+<p>方法签名如下：</p>
+<p>function Point(longitude: number, latitude: number): Point
+方法接受两个必填参数，第一个是经度（longitude），第二个是纬度（latitude），务必注意顺序。</p>
+<p>示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl class="simple">
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: db.Geo.Point(113, 23)</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一个点外，也可以使用等价的 GeoJSON 的 点 (Point) 的 JSON 表示，其格式如下：</p>
+<dl class="simple">
+<dt>{</dt><dd><p>“type”: “Point”,
+“coordinates”: [longitude, latitude] // 数字数组：[经度, 纬度]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘Point’,
+coordinates: [113, 23]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+db.Geo.LineString
+构造一个地理位置的 ”线段“。一个线段由两个或更多的点有序连接组成。</p>
+<p>方法签名如下：</p>
+<p>function LineString(points: Point[]): LineString
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: db.Geo.LineString([</p>
+<blockquote>
+<div><p>db.Geo.Point(113, 23),
+db.Geo.Point(120, 50),
+// … 可选更多点</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一条线段外，也可以使用等价的 GeoJSON 的 线段 (LineString) 的 JSON 表示，其格式如下：</p>
+<dl>
+<dt>{</dt><dd><p>“type”: “LineString”,
+“coordinates”: [</p>
+<blockquote>
+<div><p>[p1_lng, p1_lat],
+[p2_lng, p2_lng]
+// … 可选更多点</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘LineString’,
+coordinates: [</p>
+<blockquote>
+<div><p>[113, 23],
+[120, 50]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+db.Geo.Polygon
+构造一个地理位置 ”多边形“。一个多边形由一个或多个线性环（Linear Ring）组成，一个线性环即一个闭合的线段。一个闭合线段至少由四个点组成，其中最后一个点和第一个点的坐标必须相同，以此表示环的起点和终点。如果一个多边形由多个线性环组成，则第一个线性环表示外环（外边界），接下来的所有线性环表示内环（即外环中的洞，不计在此多边形中的区域）。如果一个多边形只有一个线性环组成，则这个环就是外环。</p>
+<p>多边形构造规则：</p>
+<p>第一个线性环必须是外环
+外环不能自交
+所有内环必须完全在外环内
+各个内环间不能相交或重叠，也不能有共同的边
+方法签名如下：</p>
+<p>function Polygon(lineStrings: LineString[]): Polygon
+示例代码：单环多边形</p>
+<p>const db = wx.cloud.database()
+const {Polygon, LineString, Point} = db.Geo
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: Polygon([</p>
+<blockquote>
+<div><dl class="simple">
+<dt>LineString([</dt><dd><p>Point(0, 0),
+Point(3, 2),
+Point(2, 3),
+Point(0, 0)</p>
+</dd>
+</dl>
+<p>])</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+示例代码：含一个外环和一个内环的多边形</p>
+<p>const db = wx.cloud.database()
+const {Polygon, LineString, Point} = db.Geo
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: Polygon([</p>
+<blockquote>
+<div><p>// 外环
+LineString([Point(0, 0), Point(30, 20), Point(20, 30), Point(0, 0)]),
+// 内环
+LineString([Point(10, 10), Point(16, 14), Point(14, 16), Point(10, 10)])</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一个点外，也可以使用等价的 GeoJSON 的 多边形 (Polygon) 的 JSON 表示，其格式如下：</p>
+<dl>
+<dt>{</dt><dd><p>“type”: “Polygon”,
+“coordinates”: [</p>
+<blockquote>
+<div><p>[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ], // 外环
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ], // 可选内环 1
+…
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ], // 可选内环 n</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘Polygon’,
+coordinates: [</p>
+<blockquote>
+<div><p>[[0, 0], [30, 20], [20, 30], [0, 0]],
+[[10, 10], [16, 14], [14, 16], [10, 10]]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+db.Geo.MultiPoint
+构造一个地理位置的 ”点“ 的集合。一个点集合由一个或更多的点组成。</p>
+<p>方法签名如下：</p>
+<p>function MultiPoint(points: Point[]): MultiPoint
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: db.Geo.MultiPoint([</p>
+<blockquote>
+<div><p>db.Geo.Point(113, 23),
+db.Geo.Point(120, 50),
+// … 可选更多点</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一条线段外，也可以使用等价的 GeoJSON 的 点集合 (MultiPoint) 的 JSON 表示，其格式如下：</p>
+<dl>
+<dt>{</dt><dd><p>“type”: “MultiPoint”,
+“coordinates”: [</p>
+<blockquote>
+<div><p>[p1_lng, p1_lat],
+[p2_lng, p2_lng]
+// … 可选更多点</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘MultiPoint’,
+coordinates: [</p>
+<blockquote>
+<div><p>[113, 23],
+[120, 50]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+db.Geo.MultiLineString
+构造一个地理位置 ”线段“ 集合。一个线段集合由多条线段组成。</p>
+<p>方法签名如下：</p>
+<p>function MultiLineString(lineStrings: LineString[]): MultiLineString
+示例代码</p>
+<p>const db = wx.cloud.database()
+const {LineString, MultiLineString, Point} = db.Geo
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: MultiLineString([</p>
+<blockquote>
+<div><p>LineString([Point(0, 0), Point(30, 20), Point(20, 30), Point(0, 0)]),
+LineString([Point(10, 10), Point(16, 14), Point(14, 16), Point(10, 10)])</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一个点外，也可以使用等价的 GeoJSON 的 线段集合 (MultiLineString) 的 JSON 表示，其格式如下：</p>
+<dl>
+<dt>{</dt><dd><p>“type”: “MultiLineString”,
+“coordinates”: [</p>
+<blockquote>
+<div><p>[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+…
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ]</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘MultiLineString’,
+coordinates: [</p>
+<blockquote>
+<div><p>[[0, 0], [3, 3]],
+[[5, 10], [20, 30]]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+db.Geo.MultiLineString
+构造一个地理位置 ”多边形“ 集合。一个多边形集合由多个多边形组成。</p>
+<p>方法签名如下：</p>
+<p>function MultiPolygon(polygons: Polygon[]): MultiPolygon
+示例代码</p>
+<p>const db = wx.cloud.database()
+const {</p>
+<blockquote>
+<div><p>MultiPolygon, Polygon, LineString, Point</p>
+</div></blockquote>
+<p>} = db.Geo
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: MultiPolygon([</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Polygon([</dt><dd><p>LineString([Point(50, 50), Point(60, 80), Point(80, 60), Point(50, 50)]),</p>
+</dd>
+</dl>
+<p>]),
+Polygon([</p>
+<blockquote>
+<div><p>LineString([Point(0, 0), Point(30, 20), Point(20, 30), Point(0, 0)]),
+LineString([Point(10, 10), Point(16, 14), Point(14, 16), Point(10, 10)])</p>
+</div></blockquote>
+<p>]),</p>
+</div></blockquote>
+<p>])</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)
+除了使用接口构造一个点外，也可以使用等价的 GeoJSON 的 线段集合 (MultiLineString) 的 JSON 表示，其格式如下：</p>
+<dl>
+<dt>{</dt><dd><p>“type”: “MultiPolygon”,
+“coordinates”: [</p>
+<blockquote>
+<div><p>// polygon 1
+[</p>
+<blockquote>
+<div><p>[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+…
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ]</p>
+</div></blockquote>
+<p>// polygon n
+[</p>
+<blockquote>
+<div><p>[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ],
+…
+[ [lng, lat], [lng, lat], [lng, lat], …, [lng, lat] ]</p>
+</div></blockquote>
+<p>],</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}
+示例代码</p>
+<p>const db = wx.cloud.database()
+db.collection(‘todos’).add({</p>
+<blockquote>
+<div><dl>
+<dt>data: {</dt><dd><p>description: ‘eat an apple’,
+location: {</p>
+<blockquote>
+<div><p>type: ‘MultiPolygon’,
+coordinates: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>[</dt><dd><p>[[50, 50], [60, 80], [80, 60], [50, 50]]</p>
+</dd>
+</dl>
+<p>],
+[</p>
+<blockquote>
+<div><p>[[0, 0], [30, 20], [20, 30], [0, 0]],
+[[10, 10], [16, 14], [14, 16], [10, 10]]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}).then(console.log).catch(console.error)</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+:wxcloud:`get <reference-client-api/database/doc.get>`
+===============================================================================
+
+
+.. js:function:: wx.cloud.database.collection.doc.get({data[,sucess][,fail][,complete]})
+
+   获取记录数据，或获取根据查询条件筛选后的记录数据
+
+   :param object data: 新增记录的定义.
+   :param Function success(Result): 成功回调，回调传入的参数 Result 定义同返回结果
+   :param Function fail: 失败回调
+   :param Function complete: 调用结束的回调函数（调用成功、失败都会执行）
+   :rtype: Promise<Result>
+   :returns:
+      如没有传入 *success* 、*fail* 、 *complete* 任何一个字段，
+      则返回一个 **Promise**，否则不返回任何值。
+
+      - resolve	新增记录的结果，Result 定义见下方
+      - reject	失败原因
+
+      Result 定义:
+
+      .. code:: object
+
+        {
+          data: Object; // 记录的数据，是一个 Object
+        }
+
+   :示例:
+
+      获取我的指定待办事项详细信息
+
+      回调风格
+
+      .. code:: js
+
+        const db = wx.cloud.database()
+        db.collection('todos').doc('<some-todo-id>').get({
+          success(res) {
+            console.log(res.data)
+          }
+        })
+
+      Promise 风格
+
+      .. code:: js
+
+        const db = wx.cloud.database()
+        db.collection('todos').doc('<some-todo-id>').get().then(res => {
+          console.log(res.data)
+        })

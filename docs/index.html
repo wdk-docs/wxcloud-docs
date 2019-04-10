@@ -84,9 +84,9 @@
 <li class="toctree-l1"><a class="reference internal" href="basis/index.html">1. 基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/index.html">2. 指引</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">3. 参考</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference-client-api/index.html">4. 小程序端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference-server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">6. 术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">6. 术语表</a></li>
 </ul>
 
             
@@ -156,45 +156,151 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="basis/index.html">1. 基础</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basis/getting-started.html">1.1. 起步</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basis/capabilities.html">1.2. 云开发能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basis/getting-started.html">1.1. 起步</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basis/getting-started.html#id2">1.1.1. 我的第一个云开发小程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/getting-started.html#id3">1.1.2. 兼容性问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/getting-started.html#id4">1.1.3. 开通云开发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/getting-started.html#id5">1.1.4. 云开发控制台</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/getting-started.html#id6">1.1.5. 资源环境</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basis/capabilities.html">1.2. 云开发能力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basis/capabilities.html#id2">1.2.1. 数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/capabilities.html#id3">1.2.2. 存储</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basis/capabilities.html#id4">1.2.3. 云函数</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="basis/plugin.html">1.3. 插件中使用云开发</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guide/index.html">2. 指引</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide/console.html">2.1. 控制台</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide/init.html">2.2. 初始化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/database/index.html">2.3. 数据库</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/storage/index.html">2.4. 存储</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/functions/index.html">2.5. 云函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/database/index.html">2.3. 数据库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/getting-started.html">2.3.1. 上手云数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/data-type.html">2.3.2. 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/permission.html">2.3.3. 权限控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/init.html">2.3.4. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/read.html">2.3.6. 查询数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/query.html">2.3.7. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/query-array-object.html">2.3.8. 查询数组和对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/update.html">2.3.9. 更新数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/remove.html">2.3.10. 删除数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/indexes.html">2.3.11. 索引管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/geo.html">2.3.12. 地理位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/import.html">2.3.13. 数据库导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/database/export.html">2.3.14. 数据库导出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/storage/index.html">2.4. 存储</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/storage/api.html">2.4.1. API 指引</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/storage/console.html">2.4.2. 管理文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/functions/index.html">2.5. 云函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/getting-started.html">2.5.1. 我的第一个云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/userinfo.html">2.5.2. 获取小程序用户信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/async.html">2.5.3. 异步返回结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/npm.html">2.5.4. 使用 npm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/wx-server-sdk.html">2.5.5. 在云函数中使用 wx-server-sdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/openapi.html">2.5.6. 云调用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/local-debug.html">2.5.7. 云函数本地调试功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/triggers.html">2.5.8. 定时触发器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/mechanism.html">2.5.9. 运行机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/notice.html">2.5.10. 注意事项 &amp; FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/ide.html">2.5.11. 在开发者工具中管理云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/functions/console.html">2.5.12. 测试、日志与监控</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">3. 参考</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reference/errcode.html">3.1. 错误码</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/quota.html">3.2. 资源配额</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/changelog.html">3.3. 云开发更新日志</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/changelog-cloud-sdk.html">3.3.1. 小程序基础库更新日志（云开发部分）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/changelog-server-sdk.html">3.3.2. wx-server-sdk 更新日志</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/changelog-ide.html">3.3.3. IDE 云开发 &amp; 云控制台更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/changelog.html">3.3. 云开发更新日志</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog.html#id2">3.3.1. 最新更新</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference-client-api/index.html">4. 小程序端 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reference-client-api/init.html">4.1. 初始化 wx.cloud.init</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-client-api/database/index.html">4.2. 数据库 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-client-api/storage/index.html">4.3. 存储 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-client-api/functions/index.html">4.4. 云函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-client-api/component/index.html">4.5. 组件支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/changelog-cloud-sdk.html">3.4. 小程序基础库更新日志（云开发部分）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-cloud-sdk.html#v2-6-3-2019-02-27">3.4.1. v2.6.3 (2019.02.27)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-cloud-sdk.html#v2-4-1-2018-11-19">3.4.2. v2.4.1 (2018.11.19)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-cloud-sdk.html#v2-3-2-2018-10-25">3.4.3. v2.3.2 (2018.10.25)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-cloud-sdk.html#v2-2-3-2018-08-19">3.4.4. v2.2.3 (2018.08.19)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference-server-api/index.html">5. 服务端 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reference-server-api/init.html">5.1. init 初始化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-server-api/utils/index.html">5.2. 工具类 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-server-api/database/index.html">5.3. 数据库 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-server-api/storage/index.html">5.4. 存储 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference-server-api/functions/index.html">5.5. 云函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/changelog-server-sdk.html">3.5. wx-server-sdk 更新日志</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-2-2-2019-03-22">3.5.1. v0.2.2 (2019.03.22)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-24-2018-10-29">3.5.2. v0.0.24（2018.10.29）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-22-2018-10-24">3.5.3. v0.0.22 (2018.10.24)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-21-2018-10-19">3.5.4. v0.0.21 (2018.10.19)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-11-2018-08-30">3.5.5. v0.0.11（2018.08.30）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-9-2018-08-19">3.5.6. v0.0.9（2018.08.19）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-server-sdk.html#v0-0-7-2018-08-16">3.5.7. v0.0.7（2018.08.16）</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">6. 术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/changelog-ide.html">3.6. IDE 云开发 &amp; 云控制台更新日志</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-ide.html#v1-02-1903251">3.6.1. v1.02.1903251</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-ide.html#v1-02-1812180">3.6.2. v1.02.1812180</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-ide.html#v1-02-1811270">3.6.3. v1.02.1811270</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/changelog-ide.html#v1-02-1811150">3.6.4. v1.02.1811150</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client-api/index.html">4. 小程序端 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client-api/init.html">4.1. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client-api/database/index.html">4.2. 数据库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="client-api/database/collection/index.html">4.2.1. 集合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/database/command/index.html">4.2.2. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/database/db.geo.html">4.2.3. db.Geo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/database/db.serverDate.html">4.2.4. db.serverDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/database/db.regexp.html">4.2.5. db.RegExp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="client-api/storage/index.html">4.3. 存储</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="client-api/storage/uploadFile.html">4.3.1. 上传</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/storage/downloadFile.html">4.3.2. 下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/storage/deleteFile.html">4.3.3. 删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-api/storage/getTempFileURL.html">4.3.4. 换取真实链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="client-api/functions/index.html">4.4. 云函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="client-api/functions/callFunction.html">4.4.1. callFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="client-api/component/index.html">4.5. 组件支持</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server-api/index.html">5. 服务端 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server-api/init.html">5.1. 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server-api/utils/index.html">5.2. 工具类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server-api/utils/getWXContext.html">5.2.1. getWXContext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server-api/database/index.html">5.3. 数据库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/db.createCollection.html">5.3.1. db.createCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/collection/index.html">5.3.2. 集合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/command/index.html">5.3.3. 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/db.geo.html">5.3.4. db.Geo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/db.serverDate.html">5.3.5. db.serverDate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/database/db.regexp.html">5.3.6. db.RegExp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server-api/storage/index.html">5.4. 存储</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server-api/storage/uploadFile.html">5.4.1. 上传</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/storage/downloadFile.html">5.4.2. 下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/storage/deleteFile.html">5.4.3. 删除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="server-api/storage/getTempFileURL.html">5.4.4. 换取真实链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server-api/functions/index.html">5.5. 云函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="server-api/functions/callFunction.html">5.5.1. callFunction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">6. 术语表</a></li>
 </ul>
 </div>
 </div>
@@ -204,7 +310,7 @@
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">模块索引</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">搜索页面</span></a></p></li>
-<li><p><span class="xref std std-ref">glossary</span></p></li>
+<li><p><a class="reference internal" href="glossary.html#glossary"><span class="std std-ref">术语表</span></a></p></li>
 </ul>
 </div>
 

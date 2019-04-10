@@ -1,0 +1,35 @@
+db.command.geoIntersects
+需对查询字段建立地理位置索引
+
+找出给定的地理位置图形相交的记录
+
+方法签名：
+
+function geoIntersects(IOptions): Command
+
+interface IOptions {
+  geometry:
+    | Point
+    | LineString
+    | MultiPoint
+    | MultiLineString
+    | Polygon
+    | MultiPolygon // 地理位置
+}
+示例代码：找出和一个多边形相交的记录
+
+const db = wx.cloud.database()
+const _ = db.command
+const {Point, LineString, Polygon} = db.Geo
+db.collection('restaurants').where({
+  location: _.geoIntersects({
+    geometry: Polygon([
+      LineString([
+        Point(0, 0),
+        Point(3, 2),
+        Point(2, 3),
+        Point(0, 0)
+      ])
+    ]),
+  })
+})

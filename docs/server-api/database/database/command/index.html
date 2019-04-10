@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>指令 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">6. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>指令</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/server-api/database/database/command/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>指令<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<dl class="attribute">
+<dt id="wx.cloud.database.command">
+<code class="descclassname">wx.cloud.database.</code><code class="descname">command</code><a class="headerlink" href="#wx.cloud.database.command" title="永久链接至目标">¶</a></dt>
+<dd><p>获取数据库查询及更新指令，列表见 API 列表中的 command 列表。</p>
+<dl class="field-list">
+<dt class="field-odd">示例</dt>
+<dd class="field-odd"><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Command (db.command) 对象上查询指令：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eq.html">eq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neq.html">neq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lt.html">lt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lte.html">lte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gt.html">gt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gte.html">gte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="in.html">in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nin.html">nin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inc.html">inc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mul.html">mul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="and.html">and</a></li>
+<li class="toctree-l1"><a class="reference internal" href="or.html">or</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pop.html">pop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="push.html">push</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shift.html">shift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unshift.html">unshift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remove.html">remove</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geoIntersects.html">geoIntersects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geoNear.html">geoNear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geoWithin.html">geoWithin</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

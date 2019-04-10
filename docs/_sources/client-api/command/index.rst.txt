@@ -1,0 +1,8 @@
+db.command
+============
+
+获取数据库查询及更新指令，列表见 API 列表中的 command 列表。
+
+示例代码
+
+const _ = db.command

@@ -5,14 +5,14 @@
 
 .. toctree::
    :numbered:
-   :maxdepth: 2
+   :maxdepth: 3
    :glob:
 
    basis/index
    guide/index
    reference/index
-   reference-client-api/index
-   reference-server-api/index
+   client-api/index
+   server-api/index
 
    glossary
 

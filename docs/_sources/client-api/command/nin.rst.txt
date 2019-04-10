@@ -1,0 +1,18 @@
+db.command.in
+查询筛选条件，表示字段的值需不在给定的数组内。
+
+方法签名：
+
+function nin(values: any[]): Command
+示例代码
+
+找出进度不是 0 或 100 的 todo
+
+const _ = db.command
+db.collection('todos').where({
+  progress: _.nin([0, 100])
+})
+  .get({
+    success: console.log,
+    fail: console.error
+  })
