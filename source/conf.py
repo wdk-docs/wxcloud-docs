@@ -62,5 +62,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-extlinks = {'wxcloud': (
-    'https://developers.weixin.qq.com/miniprogram/dev/wxcloud/%s.html', '')}
+extlinks = {
+    "wxcloud": ('https://developers.weixin.qq.com/miniprogram/dev/wxcloud/%s.html', ''),
+    "docloud": ('https://cloud.tencent.com/document/%s', '')
+}

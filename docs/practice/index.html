@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. 最佳实践 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.1. 用户管理" href="user.html" />
+    <link rel="prev" title="6.2.5. 存储" href="../sdk/server/storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. 最佳实践</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.html">7.1. 用户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html">7.2. 小程序码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html">7.3. 模板消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html">7.4. 微信支付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html">7.5. 音视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html">7.6. 智能图像</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>7. 最佳实践</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/practice/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7. 最佳实践<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.html">7.1. 用户管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.html#id2">7.1.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#id3">7.1.2. 体验功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#demo">7.1.3. 体验 DEMO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#id4">7.1.4. DEMO 接入流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#id5">7.1.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user.html#id6">7.1.5.1. 准备工作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html#id7">7.1.5.2. 用户登录、注册与信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html#id8">7.1.5.3. 用户授权</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html#id9">7.1.5.4. 数据解密</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html#id11">7.1.5.5. 退出登录</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qrcode.html">7.2. 小程序码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html#id2">7.2.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html#id3">7.2.2. 体验代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html#id4">7.2.3. 体验功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html#demo">7.2.4. 体验 DEMO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html#id5">7.2.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html#api">7.2.5.1. 二维码 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html#id7">7.2.5.2. 生成流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html#id8">7.2.5.3. 主要代码介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrcode.html#id9">7.2.5.4. 小程序码的分类</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tmpmsg.html">7.3. 模板消息</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html#id2">7.3.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html#id3">7.3.2. 体验功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html#demo">7.3.3. 体验 DEMO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html#id4">7.3.4. DEMO 接入流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html#id5">7.3.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tmpmsg.html#id6">7.3.5.1. 自定义消息模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tmpmsg.html#wx-js-utils">7.3.5.2. 使用 wx-js-utils 发送模板消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tmpmsg.html#id8">7.3.5.3. 统一服务消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tmpmsg.html#id11">7.3.5.4. 使用 wx-js-utils 接口发送统一服务消息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pay.html">7.4. 微信支付</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pay.html#id2">7.4.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html#id3">7.4.2. 体验功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html#demo">7.4.3. 体验 DEMO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html#id4">7.4.4. DEMO 接入流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html#id5">7.4.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pay.html#id6">7.4.5.1. 准备工作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pay.html#id7">7.4.5.2. 订单创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pay.html#id8">7.4.5.3. 发起支付与订单查询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pay.html#id9">7.4.5.4. 申请退款</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pay.html#id10">7.4.5.5. 退款查询</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="video-audio.html">7.5. 音视频</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html#id2">7.5.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html#id3">7.5.2. 体验增值服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html#demo">7.5.3. DEMO 源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html#id4">7.5.4. DEMO 接入流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html#id5">7.5.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="video-audio.html#webrtc">7.5.5.1. WebRTC 能力</a></li>
+<li class="toctree-l3"><a class="reference internal" href="video-audio.html#id7">7.5.5.2. 房间管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="smart-image.html">7.6. 智能图像</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html#id2">7.6.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html#id8">7.6.2. 体验增值服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html#demo">7.6.3. DEMO 源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html#id9">7.6.4. DEMO 接入流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="smart-image.html#id13">7.6.4.1. 人脸融合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smart-image.html#id16">7.6.4.2. 人脸识别</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html#id18">7.6.5. 源码介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="smart-image.html#id19">7.6.5.1. 活体人脸核身</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user.html" class="btn btn-neutral float-right" title="7.1. 用户管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../sdk/server/storage.html" class="btn btn-neutral float-left" title="6.2.5. 存储" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

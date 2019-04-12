@@ -96,7 +96,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
 <li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
@@ -115,7 +115,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -188,20 +189,20 @@
 <h1>2.3.2. 数据类型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>云开发数据库提供以下几种数据类型：</p>
 <ul class="simple">
-<li><p>String：字符串</p></li>
-<li><p>Number：数字</p></li>
-<li><p>Object：对象</p></li>
-<li><p>Array：数组</p></li>
-<li><p>Bool：布尔值</p></li>
-<li><p>GeoPoint：地理位置点</p></li>
-<li><p>Date：时间</p></li>
-<li><p>Null</p></li>
+<li><p><strong>String</strong>：字符串</p></li>
+<li><p><strong>Number</strong>：数字</p></li>
+<li><p><strong>Object</strong>：对象</p></li>
+<li><p><strong>Array</strong>：数组</p></li>
+<li><p><strong>Bool</strong>：布尔值</p></li>
+<li><p><strong>GeoPoint</strong>：地理位置点</p></li>
+<li><p><strong>Date</strong>：时间</p></li>
+<li><p><strong>Null</strong></p></li>
 </ul>
 <p>下面对几个需要额外说明的字段做下补充说明。</p>
 <div class="section" id="date">
 <h2>2.3.2.1. Date<a class="headerlink" href="#date" title="永久链接至标题">¶</a></h2>
-<p>Date 类型用于表示时间，精确到毫秒，在小程序端可用 JavaScript 内置 Date 对象创建。
-需要特别注意的是，在小程序端创建的时间是客户端时间，不是服务端时间，这意味着在小程序端的时间与服务端时间不一定吻合，
+<p>Date 类型用于表示时间，精确到毫秒，在小程序端可用 JavaScript 内置 Date 对象创建。</p>
+<p>需要特别注意的是，在小程序端创建的时间是客户端时间，不是服务端时间，这意味着在小程序端的时间与服务端时间不一定吻合，
 如果需要使用服务端时间，应该用 API 中提供的 serverDate 对象来创建一个服务端当前时间的标记，
 当使用了 serverDate 对象的请求抵达服务端处理时，该字段会被转换成服务端当前的时间，更棒的是，
 我们在构造 serverDate 对象时还可通过传入一个有 offset 字段的对象来标记一个与当前服务端时间偏移 offset 毫秒的时间，
@@ -211,7 +212,8 @@
 </div>
 <div class="section" id="geopoint">
 <h2>2.3.2.2. GeoPoint<a class="headerlink" href="#geopoint" title="永久链接至标题">¶</a></h2>
-<p>GeoPoint 类型用于表示地理位置点，用经纬度唯一标记一个点，这是一个特殊的数据存储类型。注意，如果需要对类型为地理位置的字段进行查找，一定要建立地理位置索引。</p>
+<p>GeoPoint 类型用于表示地理位置点，用经纬度唯一标记一个点，这是一个特殊的数据存储类型。</p>
+<p>注意，如果需要对类型为地理位置的字段进行查找，一定要建立地理位置索引。</p>
 <p>具体的地理位置 API 可参考 Geo API 文档</p>
 </div>
 <div class="section" id="null">

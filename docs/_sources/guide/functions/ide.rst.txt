@@ -37,6 +37,6 @@ package.json：npm 包定义文件，其中默认定义了最新 wx-server-sdk �
 更多设置
 我们通过右键菜单的 “更多设置” 可以进入云函数的沉浸式交互场景，在这个场景里可以完成以上所有的云函数操作，在云目录上按 ctrl 可以进行多选批量操作
 
-
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/images/ide_fnaction.png?t=19041015
 
 在下个章节，我们一起看看如何在开发云函数时进行测试、查看日志、以及查看监控。

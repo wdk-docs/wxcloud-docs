@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
 <li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.8. 查询数组和对象</a><ul>
@@ -115,7 +115,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -190,8 +191,8 @@
 下面我们从普通匹配开始讲讲如何进行匹配。</p>
 <div class="section" id="id2">
 <h2>2.3.8.1. 普通匹配<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>传入的对象的每个 &lt;key, value&gt; 构成一个筛选条件，有多个 &lt;key, value&gt; 则表示需同时满足这些条件，是与的关系，
-如果需要或关系，可使用 [command.or](./command.or.md)</p>
+<p>传入的对象的每个 <cite>&lt;key, value&gt;</cite> 构成一个筛选条件，有多个 <cite>&lt;key, value&gt; `则表示需同时满足这些条件，是与的关系，
+如果需要或关系，可使用 `[command.or](./command.or.md)</cite></p>
 <p>比如找出未完成的进度 50 的待办事项：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
   <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -252,7 +253,7 @@
 </div>
 <div class="section" id="n">
 <h3>2.3.8.2.3. 匹配数组第 n 项元素<a class="headerlink" href="#n" title="永久链接至标题">¶</a></h3>
-<p>如果想找出数组字段中数组的第 n 个元素等于某个值的记录，那在 &lt;key, value&gt; 匹配中可以以 字段.下标 为 key，
+<p>如果想找出数组字段中数组的第 n 个元素等于某个值的记录，那在 <cite>&lt;key, value&gt;</cite> 匹配中可以以 字段.下标 为 key，
 目标值为 value 来做匹配。如对上面的例子，如果想找出 number 字段第二项的值为 20 的记录，可以如下查询（注意：数组下标从 0 开始）</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
   <span class="s1">&#39;numbers.1&#39;</span><span class="o">:</span> <span class="mi">20</span>

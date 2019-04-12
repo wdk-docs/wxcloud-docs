@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.4. 微信支付 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.5. 音视频" href="video-audio.html" />
+    <link rel="prev" title="7.3. 模板消息" href="tmpmsg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 最佳实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user.html">7.1. 用户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html">7.2. 小程序码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html">7.3. 模板消息</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.4. 微信支付</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.4.1. 功能概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.4.2. 体验功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demo">7.4.3. 体验 DEMO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.4.4. DEMO 接入流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.4.5. 源码介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">7.4.5.1. 准备工作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">7.4.5.2. 订单创建</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.4.5.3. 发起支付与订单查询</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">7.4.5.4. 申请退款</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">7.4.5.5. 退款查询</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html">7.5. 音视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html">7.6. 智能图像</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. 最佳实践</a> &raquo;</li>
+        
+      <li>7.4. 微信支付</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/practice/pay.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7.4. <a class="reference external" href="https://cloud.tencent.com/document/product/876/19533">微信支付</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>7.4.1. 功能概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>本文档主要介绍微信支付功能，您可以通过本文示例体验体验下单、支付、退款等支付类的功能。</p>
+</div>
+<div class="section" id="id3">
+<h2>7.4.2. 体验功能<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<img alt="https://main.qcloudimg.com/raw/c3bffdddfa54ecd95b5a569b10f71840.png" src="https://main.qcloudimg.com/raw/c3bffdddfa54ecd95b5a569b10f71840.png" />
+</div>
+<div class="section" id="demo">
+<h2>7.4.3. 体验 DEMO<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>本章的案例代码，请参考代码 <a class="reference external" href="https://github.com/TencentCloudBase/tcb-demo-basic">tcb-demo-basic</a> 。</p>
+</div>
+<div class="section" id="id4">
+<h2>7.4.4. DEMO 接入流程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>代码下载完成后，请按照以下步骤操作：</p>
+<ol class="arabic simple">
+<li><p>在云开发中创建好至少一个环境。</p></li>
+<li><p>在 <cite>app.js</cite> 文件中，如果使用默认环境，则没有改动。如果需要使用非默认环境，
+则需要在 <cite>wx.cloud.init</cite> 中传入环境 ID。如果使用非默认环境，在云函数的 <cite>cloud.init</cite> 处，也需要补充环境 ID。如下图所示：</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/69d8d7590284cc80776021f3f8883948.png" src="https://main.qcloudimg.com/raw/69d8d7590284cc80776021f3f8883948.png" />
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="nx">env</span><span class="o">:</span> <span class="s1">&#39;xxxx&#39;</span><span class="p">,</span> <span class="c1">// 环境 id</span>
+  <span class="nx">traceUser</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>在云函数根目录 cloud/functions 中找到函数 pay，在 config 目录中新建 index.js，
+配置环境 ID、微信支付商户号、微信支付商户密钥、和双向证书中的 apiclient_cert.p12，
+该证书放也放在 config 目录中，用 npm 安装两个云函数的依赖，并上传该函数。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/70c58a00ca5f69ee1b449dd06f1734a1.png" src="https://main.qcloudimg.com/raw/70c58a00ca5f69ee1b449dd06f1734a1.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>找到云函数 <cite>pay-message</cite>，在 <cite>config</cite> 目录中新建 <cite>index.js</cite>。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/532124c3661e43c86cddca24a85ad508.png" src="https://main.qcloudimg.com/raw/532124c3661e43c86cddca24a85ad508.png" />
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>配置小程序 AppSecret 和模板 ID（选择合适的模板，合适的字段即可），用 npm 安装两个云函数的依赖，然后上传该函数。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/10e976f5ac788aa0fbb92d8d072d1efd.png" src="https://main.qcloudimg.com/raw/10e976f5ac788aa0fbb92d8d072d1efd.png" />
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>在云开发数据库中，新建两个 <cite>colleciton</cite>，第一个名为 <cite>goods</cite>，权限设置为 所有用户可读，
+仅创建者及管理员可写，而另一个名为 orders，权限保持不变。</p></li>
+<li><p>在云开发存储中，上传 <cite>cloud/storage</cite> 中的图片到 <cite>goods</cite> 目录下。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/6387d368b33ab39c3b89bfcba465dd78.png" src="https://main.qcloudimg.com/raw/6387d368b33ab39c3b89bfcba465dd78.png" />
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li><p>然后复制文件 <cite>fileID</cite>，并填入 <cite>cloud/database/goods.json</cite> 中。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/441b6544a6775160b26b7bc3f35765b2.png" src="https://main.qcloudimg.com/raw/441b6544a6775160b26b7bc3f35765b2.png" />
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>在 <cite>collections goods</cite> 中，导入 <cite>cloud/database/goods.json</cite>。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>7.4.5. 源码介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>7.4.5.1. 准备工作<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>微信支付，最主要的包括订单创建、发起支付、订单查询、申请退款、退款查询等等，本节主要介绍如何基于云开发实现微信支付。</p>
+<p>开发前，建议先阅读以下相关的文档：微信支付小程序文档 和 微信小程序支持接口。</p>
+</div>
+<div class="section" id="id7">
+<h3>7.4.5.2. 订单创建<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>在 DEMO 里，我们有三个页面，分别是 pay-list（商品列表）, pay-order （订单列表） 和 pay-result （订单详情）。
+我们在商品列表里，直接单击【下单】，就会帮我们调用云函数 pay 进行订单的创建。 云函数 pay 是一个复合的云函数，
+通过 switch 对支付的不同操作类型进行分支处理，创建订单的类型是 unifiedorder。</p>
+<p>本节截选了部分云函数 pay 的代码。我们借助 wx-js-utils 封装好微信支付的能力。
+初始化的时候，我们要填入小程序 appId, 微信支付商店号, 微信支付密钥等参数。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>由于某些敏感操作。例如，申请退款需要使用 证书，因此我们也需要带上证书并进行读取，
+但对于云函数来说，由于服务器里有内置 CA 证书，因此不需要填写 caFileContent 参数。</p>
+</div>
+<p>请参考微信支付 统一下单 文档，先拼凑好请求参数。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>notify_url 参数，由于目前云函数还没支持 HTTP 触发器和公开的外网地址，因此这里可以先随便填一个，
+可以是自有业务的地址。支付成功后，建议由小程序端主动去触发订单查询并更新状态。</p>
+</div>
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span>
+  <span class="nx">WXPay</span><span class="p">,</span>
+  <span class="nx">WXPayConstants</span><span class="p">,</span>
+  <span class="nx">WXPayUtil</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wx-js-utils&#39;</span><span class="p">);</span>
+
+<span class="c1">// 此处省略其它代码</span>
+
+
+<span class="kr">const</span> <span class="nx">pay</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WXPay</span><span class="p">({</span>
+    <span class="nx">appId</span><span class="o">:</span> <span class="nx">APPID</span><span class="p">,</span> <span class="c1">// 小程序 appID</span>
+    <span class="nx">mchId</span><span class="o">:</span> <span class="nx">MCHID</span><span class="p">,</span> <span class="c1">// 微信支付商户号</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="nx">KEY</span><span class="p">,</span> <span class="c1">// 微信支付密钥</span>
+    <span class="nx">certFileContent</span><span class="o">:</span> <span class="nx">CERT_FILE_CONTENT</span><span class="p">,</span> <span class="c1">// 微信支付证书</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="nx">TIMEOUT</span><span class="p">,</span> <span class="c1">//  超时时间</span>
+    <span class="nx">signType</span><span class="o">:</span> <span class="nx">WXPayConstants</span><span class="p">.</span><span class="nx">SIGN_TYPE_MD5</span><span class="p">,</span> <span class="c1">// 加密方式</span>
+    <span class="nx">useSandbox</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// 不使用沙箱环境</span>
+  <span class="p">});</span>
+
+  <span class="c1">// 此处省略其它代码</span>
+
+<span class="c1">// 拼凑订单参数</span>
+<span class="kr">const</span> <span class="nx">curTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">tradeNo</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">goodId</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">curTime</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span> <span class="c1">// 自这义的trade number</span>
+<span class="kr">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">good</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// 商品名作为 body 内容</span>
+<span class="kr">const</span> <span class="nx">spbill_create_ip</span> <span class="o">=</span> <span class="nx">ip</span><span class="p">.</span><span class="nx">address</span><span class="p">()</span> <span class="o">||</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span> <span class="c1">//  获取服务器的 ip 地址</span>
+<span class="kr">const</span> <span class="nx">notify_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.qq.com&#39;</span><span class="p">;</span> <span class="c1">//&#39;云函数暂时没有外网地址和HTTP触发起，暂时随便填个地址。建议填自己站点的域名&#39;</span>
+<span class="kr">const</span> <span class="nx">total_fee</span> <span class="o">=</span> <span class="nx">good</span><span class="p">.</span><span class="nx">price</span><span class="p">;</span> <span class="c1">// 商品的价格</span>
+<span class="kr">const</span> <span class="nx">time_stamp</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// 订单创建的时间</span>
+<span class="kr">const</span> <span class="nx">out_trade_no</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">tradeNo</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">sign_type</span> <span class="o">=</span> <span class="nx">WXPayConstants</span><span class="p">.</span><span class="nx">SIGN_TYPE_MD5</span><span class="p">;</span> <span class="c1">// 加密方式</span>
+
+<span class="kd">let</span> <span class="nx">orderParam</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">body</span><span class="p">,</span>
+    <span class="nx">spbill_create_ip</span><span class="p">,</span>
+    <span class="nx">notify_url</span><span class="p">,</span>
+    <span class="nx">out_trade_no</span><span class="p">,</span>
+    <span class="nx">total_fee</span><span class="p">,</span>
+    <span class="nx">openid</span><span class="o">:</span> <span class="nx">OPENID</span><span class="p">,</span>
+    <span class="nx">trade_type</span><span class="o">:</span> <span class="s1">&#39;JSAPI&#39;</span><span class="p">,</span>
+    <span class="nx">timeStamp</span><span class="o">:</span> <span class="nx">time_stamp</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// 在微信支付服务端生成该订单</span>
+<span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">return_code</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">restData</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">pay</span><span class="p">.</span><span class="nx">unifiedOrder</span><span class="p">(</span><span class="nx">orderParam</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>7.4.5.3. 发起支付与订单查询<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>发起支付的过程，除了后台接口，还涉及到小程序的 wx.requestPayment 接口。
+下面代码截选自 pay-result 订单详情页面，进入页面后，会先通过 getOrder 方法查询订单并获取订单所有数据，
+用户单击支付后，会根据订单的数据拼凑参数。然后调用 wx.requestPayment 发起支付，
+再去请求云函数 pay，在 payorder 处理分支中，进行订单信息的更新。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取订单详情</span>
+<span class="nx">async</span> <span class="nx">getOrder</span><span class="p">()</span> <span class="p">{</span>
+<span class="kr">const</span> <span class="p">{</span><span class="nx">result</span><span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;orderquery&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">out_trade_no</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">out_trade_no</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span> <span class="o">||</span> <span class="p">{}</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+    <span class="nx">order</span><span class="o">:</span> <span class="nx">data</span>
+<span class="p">},</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 如果状态是退款中，则每次进来都会查询一下退款情况</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">queryRefund</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">},</span>
+
+<span class="c1">// 发起支付</span>
+<span class="nx">pay</span><span class="p">()</span> <span class="p">{</span>
+<span class="kr">const</span> <span class="nx">orderQuery</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">order</span>
+<span class="kr">const</span> <span class="nx">out_trade_no</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">out_trade_no</span>
+
+<span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">time_stamp</span><span class="p">,</span>
+    <span class="nx">nonce_str</span><span class="p">,</span>
+    <span class="nx">sign</span><span class="p">,</span>
+    <span class="nx">prepay_id</span><span class="p">,</span>
+    <span class="nx">body</span><span class="p">,</span>
+    <span class="nx">total_fee</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">orderQuery</span>
+
+<span class="nx">wx</span><span class="p">.</span><span class="nx">requestPayment</span><span class="p">({</span>
+    <span class="nx">timeStamp</span><span class="o">:</span> <span class="nx">time_stamp</span><span class="p">,</span>
+    <span class="nx">nonceStr</span><span class="o">:</span> <span class="nx">nonce_str</span><span class="p">,</span>
+    <span class="kr">package</span><span class="o">:</span> <span class="sb">`prepay_id=</span><span class="si">${</span><span class="nx">prepay_id</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+    <span class="nx">signType</span><span class="o">:</span> <span class="s1">&#39;MD5&#39;</span><span class="p">,</span>
+    <span class="nx">paySign</span><span class="o">:</span> <span class="nx">sign</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">showLoading</span><span class="p">({</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;正在支付&#39;</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">showToast</span><span class="p">({</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;支付成功&#39;</span><span class="p">,</span>
+        <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="nx">duration</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">getOrder</span><span class="p">()</span>
+
+        <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;payorder&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">body</span><span class="p">,</span>
+                <span class="nx">prepay_id</span><span class="p">,</span>
+                <span class="nx">out_trade_no</span><span class="p">,</span>
+                <span class="nx">total_fee</span>
+            <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="nx">wx</span><span class="p">.</span><span class="nx">hideLoading</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="p">},</span>
+    <span class="nx">fail</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">})</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>通过云函数 pay 的 payorder 处理分支，主要就是通过 pay.orderQuery 查询微信服务端，如果支付成功，
+就会更新订单数据，并取发送一条模板消息告诉用户支付成功。详情请参考 模板消息文档。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 进行微信支付及更新订单状态</span>
+<span class="k">case</span> <span class="s1">&#39;payorder&#39;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">out_trade_no</span><span class="p">,</span>
+    <span class="nx">prepay_id</span><span class="p">,</span>
+    <span class="nx">body</span><span class="p">,</span>
+    <span class="nx">total_fee</span>
+    <span class="p">}</span> <span class="o">=</span> <span class="nx">data</span>
+
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">return_code</span><span class="p">,</span> <span class="p">...</span><span class="nx">restData</span><span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">pay</span><span class="p">.</span><span class="nx">orderQuery</span><span class="p">({</span>
+    <span class="nx">out_trade_no</span>
+    <span class="p">})</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">restData</span><span class="p">.</span><span class="nx">trade_state</span> <span class="o">===</span> <span class="s1">&#39;SUCCESS&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">orderCollection</span>
+        <span class="p">.</span><span class="nx">where</span><span class="p">({</span><span class="nx">out_trade_no</span><span class="p">})</span>
+        <span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nx">trade_state</span><span class="o">:</span> <span class="nx">restData</span><span class="p">.</span><span class="nx">trade_state</span><span class="p">,</span>
+            <span class="nx">trade_state_desc</span><span class="o">:</span> <span class="nx">restData</span><span class="p">.</span><span class="nx">trade_state_desc</span>
+        <span class="p">}</span>
+        <span class="p">})</span>
+
+    <span class="c1">// console.log(&#39;======restData======&#39;);</span>
+    <span class="c1">// console.log(restData);</span>
+
+    <span class="kr">const</span> <span class="nx">curDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="kr">const</span> <span class="nx">time</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">curDate</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">messageResult</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;pay-message&#39;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">formId</span><span class="o">:</span> <span class="nx">prepay_id</span><span class="p">,</span>
+            <span class="nx">openId</span><span class="o">:</span> <span class="nx">OPENID</span><span class="p">,</span>
+            <span class="nx">appId</span><span class="o">:</span> <span class="nx">APPID</span><span class="p">,</span>
+            <span class="nx">page</span><span class="o">:</span> <span class="sb">`pages/pay-result/index?id=</span><span class="si">${</span><span class="nx">out_trade_no</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="c1">// pages 前面不允许带有 &quot;/&quot;，否则识别为非法参数</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">keyword1</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">value</span><span class="o">:</span> <span class="nx">out_trade_no</span> <span class="c1">// 订单号</span>
+            <span class="p">},</span>
+            <span class="nx">keyword2</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">value</span><span class="o">:</span> <span class="nx">body</span> <span class="c1">// 物品名称</span>
+            <span class="p">},</span>
+            <span class="nx">keyword3</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">value</span><span class="o">:</span> <span class="nx">time</span><span class="c1">// 支付时间</span>
+            <span class="p">},</span>
+            <span class="nx">keyword4</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">value</span><span class="o">:</span> <span class="p">(</span><span class="nx">total_fee</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;元&#39;</span> <span class="c1">// 支付金额</span>
+            <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;=======message=========&#39;</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messageResult</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;===========&#39;</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="nx">return_code</span> <span class="o">===</span> <span class="s1">&#39;SUCCESS&#39;</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nx">restData</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>7.4.5.4. 申请退款<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>申请退款是针对已经支付过的订单。申请退款属于敏感操作，需要使用双向证书。
+通过云函数 pay 的 refund 操作分支申请退款，退款不是马上生效的，可能会有一定的延迟。
+示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 申请退款，但不会马上退</span>
+<span class="nx">async</span> <span class="nx">refund</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">wx</span><span class="p">.</span><span class="nx">showLoading</span><span class="p">({</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;正在申请退款&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;refund&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">out_trade_no</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">out_trade_no</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="nx">wx</span><span class="p">.</span><span class="nx">hideLoading</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">order</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">trade_state_desc</span> <span class="o">=</span> <span class="s1">&#39;正在退款&#39;</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">trade_state</span> <span class="o">=</span> <span class="s1">&#39;REFUNDING&#39;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+    <span class="nx">order</span>
+    <span class="p">})</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">showToast</span><span class="p">({</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+    <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>在云函数中，主要需要的参数是 out_trade_no 和 total_fee，
+分别作为退款的订单号和退款金额传给 pay.refund 方法进行退款申请即可。示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 申请退款</span>
+<span class="k">case</span> <span class="s1">&#39;refund&#39;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">out_trade_no</span><span class="p">}</span> <span class="o">=</span> <span class="nx">data</span>
+    <span class="kr">const</span> <span class="nx">orders</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">orderCollection</span><span class="p">.</span><span class="nx">where</span><span class="p">({</span><span class="nx">out_trade_no</span><span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">orders</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">orders</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;找不到订单&#39;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kr">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="nx">orders</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">total_fee</span><span class="p">,</span>
+    <span class="p">}</span> <span class="o">=</span> <span class="nx">order</span>
+
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">pay</span><span class="p">.</span><span class="nx">refund</span><span class="p">({</span>
+    <span class="nx">out_trade_no</span><span class="p">,</span>
+    <span class="nx">total_fee</span><span class="p">,</span>
+    <span class="nx">out_refund_no</span><span class="o">:</span> <span class="nx">out_trade_no</span><span class="p">,</span>
+    <span class="nx">refund_fee</span><span class="o">:</span> <span class="nx">total_fee</span>
+    <span class="p">})</span>
+
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">return_code</span><span class="p">}</span> <span class="o">=</span> <span class="nx">result</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">return_code</span> <span class="o">===</span> <span class="s1">&#39;SUCCESS&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nx">orderCollection</span><span class="p">.</span><span class="nx">where</span><span class="p">({</span><span class="nx">out_trade_no</span><span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">trade_state</span><span class="o">:</span> <span class="s1">&#39;REFUNDING&#39;</span><span class="p">,</span>
+            <span class="nx">trade_state_desc</span><span class="o">:</span> <span class="s1">&#39;正在退款&#39;</span><span class="p">,</span>
+            <span class="nx">status</span><span class="o">:</span> <span class="mi">3</span>
+        <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">mesasge</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">mesasge</span><span class="o">:</span> <span class="s1">&#39;退款失败，请重试&#39;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>7.4.5.5. 退款查询<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>申请退款也有 notify_url 回调参数的，不过是可选项。但由于不支持 HTTP 触发和公网地址，
+因此建议您在小程序端主动触发更新订单信息。示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 查询退款情况</span>
+<span class="nx">async</span> <span class="nx">queryRefund</span><span class="p">()</span> <span class="p">{</span>
+<span class="kr">const</span> <span class="p">{</span><span class="nx">result</span><span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;queryrefund&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">out_trade_no</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">out_trade_no</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">// 退款成功，则更新本地数据状态</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span>
+    <span class="kr">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">order</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">trade_state_desc</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">trade_state_desc</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">status</span>
+    <span class="nx">order</span><span class="p">.</span><span class="nx">trade_state</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">trade_state</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+    <span class="nx">order</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>在云函数 pay 中查询并更新退款订单。示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 查询退款情况</span>
+<span class="k">case</span> <span class="s1">&#39;queryrefund&#39;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">out_trade_no</span><span class="p">}</span> <span class="o">=</span> <span class="nx">data</span>
+
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">pay</span><span class="p">.</span><span class="nx">refundQuery</span><span class="p">({</span>
+    <span class="nx">out_trade_no</span>
+    <span class="p">})</span>
+
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">refund_status_0</span><span class="p">,</span> <span class="nx">return_code</span><span class="p">}</span> <span class="o">=</span> <span class="nx">result</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">return_code</span> <span class="o">===</span> <span class="s1">&#39;SUCCESS&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">refund_status_0</span> <span class="o">===</span> <span class="s1">&#39;SUCCESS&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nx">orderCollection</span><span class="p">.</span><span class="nx">where</span><span class="p">({</span><span class="nx">out_trade_no</span><span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">trade_state</span><span class="o">:</span> <span class="s1">&#39;REFUNDED&#39;</span><span class="p">,</span>
+            <span class="nx">trade_state_desc</span><span class="o">:</span> <span class="s1">&#39;已退款&#39;</span><span class="p">,</span>
+            <span class="nx">status</span><span class="o">:</span> <span class="mi">4</span>
+        <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">trade_state</span><span class="o">:</span> <span class="s1">&#39;REFUNDED&#39;</span><span class="p">,</span>
+            <span class="nx">trade_state_desc</span><span class="o">:</span> <span class="s1">&#39;已退款&#39;</span><span class="p">,</span>
+            <span class="nx">status</span><span class="o">:</span> <span class="mi">4</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// eslint-disable-next-line no-unreachable</span>
+    <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="video-audio.html" class="btn btn-neutral float-right" title="7.5. 音视频" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tmpmsg.html" class="btn btn-neutral float-left" title="7.3. 模板消息" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
       小程序端云函数
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :glob:
 
    init

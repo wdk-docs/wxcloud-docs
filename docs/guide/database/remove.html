@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
 <li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
@@ -114,7 +114,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -199,7 +200,8 @@
 </div>
 <div class="section" id="id3">
 <h2>2.3.10.2. 删除多条记录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>如果需要更新多个数据，需在 Server 端进行操作（云函数）。可通过 where 语句选取多条记录执行删除，只有有权限删除的记录会被删除。比如删除所有已完成的待办事项：</p>
+<p>如果需要更新多个数据，需在 Server 端进行操作（云函数）。可通过 where 语句选取多条记录执行删除，
+只有有权限删除的记录会被删除。比如删除所有已完成的待办事项：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 使用了 async await 语法</span>
 <span class="kr">const</span> <span class="nx">cloud</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">()</span>
@@ -216,7 +218,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在大多数情况下，我们希望用户只能操作自己的数据（自己的代表事项），不能操作其他人的数据（其他人的待办事项），这就需要引入权限控制了。</p>
+<p>在大多数情况下，我们希望用户只能操作自己的数据（自己的代表事项），
+不能操作其他人的数据（其他人的待办事项），这就需要引入权限控制了。</p>
 <p>在下个章节，我们看看如何控制集合与记录的读写权限，达到保护数据的目的。</p>
 </div>
 </div>

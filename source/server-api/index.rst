@@ -18,7 +18,7 @@
 以下是 wx-server-sdk API 文档分类入口：
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :glob:
 
    init

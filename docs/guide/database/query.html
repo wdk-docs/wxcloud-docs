@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
 <li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.7. 指令</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">2.3.7.1. 查询指令</a></li>
@@ -114,7 +114,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -188,7 +189,8 @@
 <p>使用数据库 API 提供的 where 方法我们可以构造复杂的查询条件完成复杂的查询任务。在本节中我们还是使用上一章节中使用的示例数据。</p>
 <div class="section" id="id2">
 <h2>2.3.7.1. 查询指令<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>假设我们需要查询进度大于 30% 的待办事项，那么传入对象表示全等匹配的方式就无法满足了，这时就需要用到查询指令。数据库 API 提供了大于、小于等多种查询指令，这些指令都暴露在 db.command 对象上。比如查询进度大于 30% 的待办事项：</p>
+<p>假设我们需要查询进度大于 30% 的待办事项，那么传入对象表示全等匹配的方式就无法满足了，
+这时就需要用到查询指令。数据库 API 提供了大于、小于等多种查询指令，这些指令都暴露在 db.command 对象上。比如查询进度大于 30% 的待办事项：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
   <span class="c1">// gt 方法用于指定一个 &quot;大于&quot; 条件，此处 _.gt(30) 是一个 &quot;大于 30&quot; 的条件</span>
@@ -215,7 +217,8 @@ nin     字段值不在给定数组中
 </div>
 <div class="section" id="id3">
 <h2>2.3.7.2. 逻辑指令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>除了指定一个字段满足一个条件之外，我们还可以通过指定一个字段需同时满足多个条件，比如用 and 逻辑指令查询进度在 30% 和 70% 之间的待办事项：</p>
+<p>除了指定一个字段满足一个条件之外，我们还可以通过指定一个字段需同时满足多个条件，
+比如用 and 逻辑指令查询进度在 30% 和 70% 之间的待办事项：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
   <span class="c1">// and 方法用于指定一个 &quot;与&quot; 条件，此处表示需同时满足 _.gt(30) 和 _.lt(70) 两个条件</span>

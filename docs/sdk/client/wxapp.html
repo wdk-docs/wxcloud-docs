@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.1.2. 微信小程序 SDK &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.2. 服务端" href="../server/index.html" />
+    <link rel="prev" title="6.1.1. JavaScript" href="javascript.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. SDK</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.1. 客户端</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="javascript.html">6.1.1. JavaScript</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.1.2. 微信小程序 SDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">6.1.2.1. 介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.1.2.2. 支持版本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../server/index.html">6.2. 服务端</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">7. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. SDK</a> &raquo;</li>
+        
+          <li><a href="index.html">6.1. 客户端</a> &raquo;</li>
+        
+      <li>6.1.2. 微信小程序 SDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/sdk/client/wxapp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sdk">
+<h1>6.1.2. 微信小程序 SDK<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>6.1.2.1. 介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>微信小程序的 SDK，已经直接内置到微信小程序运行框架内，无需额外引用，节省空间。通过微信小程序 SDK，你可以在微信小程序中直接访问 TCB 的服务。</p>
+</div>
+<div class="section" id="id2">
+<h2>6.1.2.2. 支持版本<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在开发过程中，请在微信开发者工具中，单击右上角的 【详情】菜单，在 【项目设置】 &gt; 【调试基础库】中选择 2.2.3 或以上版本。</p>
+<img alt="https://ask.qcloudimg.com/draft/1011618/who9velxi5.png" src="https://ask.qcloudimg.com/draft/1011618/who9velxi5.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../server/index.html" class="btn btn-neutral float-right" title="6.2. 服务端" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="javascript.html" class="btn btn-neutral float-left" title="6.1.1. JavaScript" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.5. 音视频 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.6. 智能图像" href="smart-image.html" />
+    <link rel="prev" title="7.4. 微信支付" href="pay.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 最佳实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user.html">7.1. 用户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html">7.2. 小程序码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html">7.3. 模板消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html">7.4. 微信支付</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.5. 音视频</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.5.1. 功能概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.5.2. 体验增值服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demo">7.5.3. DEMO 源码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.5.4. DEMO 接入流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.5.5. 源码介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#webrtc">7.5.5.1. WebRTC 能力</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">7.5.5.2. 房间管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html">7.6. 智能图像</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. 最佳实践</a> &raquo;</li>
+        
+      <li>7.5. 音视频</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/practice/video-audio.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7.5. 音视频<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>7.5.1. 功能概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>本增值服务已整合腾讯云的 实时音视频 能力，通过云开发的云函数和数据库的能力，简化配置拉取和房间管理等功能。</p>
+</div>
+<div class="section" id="id3">
+<h2>7.5.2. 体验增值服务<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="demo">
+<h2>7.5.3. DEMO 源码<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>本章的案例 代码 tcb-demo-video。
+包含了小程序前端代码 （client 目录下）和云函数代码（cloud 目录下），需要在微信开发者工具中打开整个项目。
+下面将详细介绍 DEMO 的接入流程。</p>
+</div>
+<div class="section" id="id4">
+<h2>7.5.4. DEMO 接入流程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>登录 小程序的管理后台，选择 【设置】&gt; 【基本设置】 &gt; 【服务类目】中添加允许视频直播类的管理。</p>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/0e318bae69e6912475ad7a81763bc5b8.png" src="https://main.qcloudimg.com/raw/0e318bae69e6912475ad7a81763bc5b8.png" />
+</div></blockquote>
+</li>
+<li><p>在小程序管理后台选择【开发】&gt; 【接口设置】中，将实时播放音视频流和实时录制音视频流打开。</p>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/6e5a2678a8dc7c9d2658917c3c1ef1a0.png" src="https://main.qcloudimg.com/raw/6e5a2678a8dc7c9d2658917c3c1ef1a0.png" />
+</div></blockquote>
+</li>
+<li><p>在小程序管理后台选择【开发】&gt; 【开发设置】中，配置以下域名：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://official.opensso.tencent-cloud.com">https://official.opensso.tencent-cloud.com</a></p></li>
+<li><p><a class="reference external" href="https://yun.tim.qq.com">https://yun.tim.qq.com</a></p></li>
+<li><p><a class="reference external" href="https://room.qcloud.com">https://room.qcloud.com</a></p></li>
+<li><p><a class="reference external" href="https://webim.tim.qq.com">https://webim.tim.qq.com</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<img alt="https://main.qcloudimg.com/raw/8d45af53bbe1d4f85219dedf65cc637d.png" src="https://main.qcloudimg.com/raw/8d45af53bbe1d4f85219dedf65cc637d.png" />
+<ol class="arabic" start="4">
+<li><p>通过 微信公众号 登录小程序对应的腾讯云账号（需要小程序管理员权限），
+然后在腾讯云官网单击 实时音视频，开通服务并购买体验包，进入控制台，并获取以下配置信息：</p>
+<blockquote>
+<div><ul>
+<li><p>SDKAppid 和 accountType</p>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/300ea0eb8cbd15a614c303b6f1508ba4.png" src="https://main.qcloudimg.com/raw/300ea0eb8cbd15a614c303b6f1508ba4.png" />
+</div></blockquote>
+</li>
+<li><p>下载公私钥（private_key）文件</p>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/e17faec4233f466196ffd9a4a26fc366.png" src="https://main.qcloudimg.com/raw/e17faec4233f466196ffd9a4a26fc366.png" />
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>请使用微信开发者工具打开 DEMO 源码，在根目录下的 project.config.json 文件，填写您的小程序 appid。</p></li>
+<li><p>请按以下步骤完成操作。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>首先在云函数目录 cloud/functions 的函数 webrtc-sig-api 中，将 private_key 文件放到 config 目录下；</p></li>
+<li><p>其次在每个云函数目录的config目录下，参照example.js文件，新建 index.js 文件，并配置好 SDKAppid 和 accountType；</p></li>
+<li><p>再而上传部署所有的云函数；</p></li>
+<li><p>最后，在云开发面板的数据库栏目中，创建 webrtcRooms 集合。</p></li>
+</ul>
+<img alt="https://main.qcloudimg.com/raw/ad9a36f9dafde5721acf1b22499417cf.png" src="https://main.qcloudimg.com/raw/ad9a36f9dafde5721acf1b22499417cf.png" />
+</div></blockquote>
+</li>
+<li><p>打开微信开发者工具直接预览即可。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>7.5.5. 源码介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="webrtc">
+<h3>7.5.5.1. WebRTC 能力<a class="headerlink" href="#webrtc" title="永久链接至标题">¶</a></h3>
+<p>WebRTC 的能力的体验，主要是围绕源码中 client/pages/webrtc-room 里面的 join-room 和 room 两个目录，
+一个是手动输入房间号进入房间，另一个是视频房间 cloud/functions/webrtc-sig-api 目录，
+此云函数主要用于填写实时音视频的配置后，进行信息加密，将加密好的信息传到小程序端，才能正常使用 WebRTC 视频通话能力。</p>
+<p>云函数 webrtc-sig-api 中，
+WebRTCSigApi.js 是官方提供的 <a class="reference external" href="https://github.com/TencentVideoCloudMLVBDev/usersig_server_source/blob/master/nodejs/WebRTCSigApi.js">签名逻辑文件</a>，而 index.js，调用 WebRTCSigApi.js 中的方法，
+然后将 privateMapKey、userSig 提供到小程序，小程序端才能正常将直播流唤起。</p>
+</div>
+<div class="section" id="id7">
+<h3>7.5.5.2. 房间管理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>房间管理主要通过云开发的云函数和数据库实现。webrtcRooms 集合的数据格式如下：</p>
+<img alt="https://main.qcloudimg.com/raw/a2f41dbb8871a7c65571ef6ceb1a5159.png" src="https://main.qcloudimg.com/raw/a2f41dbb8871a7c65571ef6ceb1a5159.png" />
+<p>数据包括有房间创建者和观众的 openid房间 ID 、房间名、房间创建时间，还有房间的权限位 privateMapKey。</p>
+<p>云函数分别有创建房间（webrtc-create-room）、进入房间（webrtc-enter-room）、退出房间（webrtc-quit-room）、获取房间信息（webrtc-get-room-info）、获取房间列表（webrtc-get-room-list）云函数。</p>
+<ul class="simple">
+<li><p>webrtc-create-room 函数主要用于创建房间，这里用到了数据库的读写，先要判断房间是否存在，如果不存在，则创建房间。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>该函数有一处逻辑，此处是通过循环的方式，去检查房间 ID ，以防生成了重复的 ID。</p>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 循环检查数据，避免 generateRoomID 生成重复的roomID</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">await</span> <span class="nx">isRoomExist</span><span class="p">(</span><span class="nx">roomInfo</span><span class="p">.</span><span class="nx">roomID</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">roomInfo</span><span class="p">.</span><span class="nx">roomID</span> <span class="o">=</span> <span class="nx">generateRoomID</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>webrtc-enter-room</cite> 函数主要用于进入房间，如果房间存在，则将用户的 <cite>openid</cite> 写入房间观众字段，
+如果房间不存在，则调用 <cite>webrtc-create-room</cite> 进行房间创建。</p></li>
+<li><p><cite>webrtc-quit-room</cite> 函数主要用于退出房间，如果房间还有观众，则将退出者的 <cite>openid</cite> 清除，如果没有观众了，则把房间数据清理掉。</p></li>
+<li><p><cite>webrtc-get-room-info</cite> 函数主要用于获取房间数据。</p></li>
+<li><p><cite>webrtc-get-room-list</cite> 函数主要用于获取房间列表数据。</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smart-image.html" class="btn btn-neutral float-right" title="7.6. 智能图像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pay.html" class="btn btn-neutral float-left" title="7.4. 微信支付" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

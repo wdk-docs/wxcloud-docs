@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2.4. 数据库 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.2.5. 存储" href="storage.html" />
+    <link rel="prev" title="6.2.3. 云函数" href="callFunction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. SDK</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../client/index.html">6.1. 客户端</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6.2. 服务端</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">6.2.1. 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">6.2.2. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="callFunction.html">6.2.3. 云函数</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.2.4. 数据库</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.2.4.1. 获取数据库的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.2.4.2. 获取集合的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection">6.2.4.3. 集合 Collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#record-document">6.2.4.4. 记录 Record / Document</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#query-command">6.2.4.5. 查询筛选指令 Query Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-command">6.2.4.6. 字段更新指令 Update Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.2.4.7. 支持的数据类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date">6.2.4.8. 时间 Date</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.2.4.9. 地理位置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.2.4.10. 新增集合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">6.2.4.11. 查询文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">6.2.4.12. 查询指令</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">6.2.4.13. 删除文档</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">6.2.4.14. 更新文档</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html">6.2.5. 存储</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">7. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. SDK</a> &raquo;</li>
+        
+          <li><a href="index.html">6.2. 服务端</a> &raquo;</li>
+        
+      <li>6.2.4. 数据库</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/sdk/server/database.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6.2.4. 数据库<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>6.2.4.1. 获取数据库的引用<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tcb-admin-node&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">database</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>6.2.4.2. 获取集合的引用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取 `user` 集合的引用</span>
+<span class="kr">const</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collection">
+<h2>6.2.4.3. 集合 Collection<a class="headerlink" href="#collection" title="永久链接至标题">¶</a></h2>
+<p>通过 db.collection(name) 可以获取指定集合的引用，在集合上可以进行以下操作</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>类型</p></th>
+<th class="head"><p>接口</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>写</p></td>
+<td><p>add</p></td>
+<td><p>新增记录（触发请求）</p></td>
+</tr>
+<tr class="row-odd"><td><p>计数</p></td>
+<td><p>count</p></td>
+<td><p>获取复合条件的记录条数</p></td>
+</tr>
+<tr class="row-even"><td><p>读</p></td>
+<td><p>get</p></td>
+<td><p>获取集合中的记录，如果有使用 where 语句定义查询条件，则会返回匹配结果集 (触发请求)</p></td>
+</tr>
+<tr class="row-odd"><td><p>引用</p></td>
+<td><p>doc</p></td>
+<td><p>获取对该集合中指定 id 的记录的引用</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><blockquote>
+<div><p>查询条件</p>
+</div></blockquote>
+</td>
+<td><p>where</p></td>
+<td><p>通过指定条件筛选出匹配的记录，可搭配查询指令（eq, gt, in, …）使用</p></td>
+</tr>
+<tr class="row-odd"><td><p>skip</p></td>
+<td><p>跳过指定数量的文档，常用于分页，传入 offset</p></td>
+</tr>
+<tr class="row-even"><td><p>orderBy</p></td>
+<td><p>排序方式</p></td>
+</tr>
+<tr class="row-odd"><td><p>limit</p></td>
+<td><p>返回的结果集(文档数量)的限制，有默认值和上限值</p></td>
+</tr>
+<tr class="row-even"><td><p>field</p></td>
+<td><p>指定需要返回的字段</p></td>
+</tr>
+</tbody>
+</table>
+<p>查询及更新指令用于在 where 中指定字段需满足的条件，指令可通过 db.command 对象取得。</p>
+</div>
+<div class="section" id="record-document">
+<h2>6.2.4.4. 记录 Record / Document<a class="headerlink" href="#record-document" title="永久链接至标题">¶</a></h2>
+<p>通过 db.collection(collectionName).doc(docId) 可以获取指定集合上指定 id 的记录的引用，在记录上可以进行以下操作</p>
+<p>类型      接口      说明
+写       set     覆写记录
+update  局部更新记录(触发请求)
+remove  删除记录(触发请求)
+读       get     获取记录(触发请求)</p>
+</div>
+<div class="section" id="query-command">
+<h2>6.2.4.5. 查询筛选指令 Query Command<a class="headerlink" href="#query-command" title="永久链接至标题">¶</a></h2>
+<p>以下指令挂载在 db.command 下</p>
+<p>类型      接口      说明
+比较运算    eq      字段 ==
+neq     字段 !=
+gt      字段 &gt;
+gte     字段 &gt;=
+lt      字段 &lt;
+lte     字段&lt;=
+in      字段值在数组里
+nin     字段值不在数组里
+逻辑运算    and     表示需同时满足指定的所有条件
+or      表示需同时满足指定条件中的至少一个</p>
+</div>
+<div class="section" id="update-command">
+<h2>6.2.4.6. 字段更新指令 Update Command<a class="headerlink" href="#update-command" title="永久链接至标题">¶</a></h2>
+<p>以下指令挂载在 db.command 下</p>
+<p>类型      接口      说明
+字段      set     设置字段值
+remove  删除字段
+inc     加一个数值，原子自增
+mul     乘一个数值，原子自乘
+push    数组类型字段追加尾元素，支持数组
+pop     数组类型字段删除尾元素，支持数组
+shift   数组类型字段删除头元素，支持数组
+unshift 数组类型字段追加头元素，支持数组</p>
+</div>
+<div class="section" id="id4">
+<h2>6.2.4.7. 支持的数据类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>数据库提供以下几种数据类型：</p>
+<p>String：字符串
+Number：数字
+Object：对象
+Array：数组
+Bool：布尔值
+GeoPoint：地理位置点
+Date：时间
+Null
+以下对几个特殊的数据类型做个补充说明</p>
+</div>
+<div class="section" id="date">
+<h2>6.2.4.8. 时间 Date<a class="headerlink" href="#date" title="永久链接至标题">¶</a></h2>
+<p>Date 类型用于表示时间，精确到毫秒，可以用 JavaScript 内置 Date 对象创建。需要特别注意的是，用此方法创建的时间是客户端时间，不是服务端时间。如果需要使用服务端时间，应该用 API 中提供的 serverDate 对象来创建一个服务端当前时间的标记，当使用了 serverDate 对象的请求抵达服务端处理时，该字段会被转换成服务端当前的时间，更棒的是，我们在构造 serverDate 对象时还可通过传入一个有 offset 字段的对象来标记一个与当前服务端时间偏移 offset 毫秒的时间，这样我们就可以达到比如如下效果：指定一个字段为服务端时间往后一个小时。</p>
+<p>那么当我们需要使用客户端时间时，存放 Date 对象和存放毫秒数是否是一样的效果呢？不是的，我们的数据库有针对日期类型的优化，建议大家使用时都用 Date 或 serverDate 构造时间对象。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">//服务端当前时间</span>
+<span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverDate</span><span class="p">()</span>
+<span class="c1">//服务端当前时间加1S</span>
+<span class="k">new</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverDate</span><span class="p">({</span>
+<span class="nx">offset</span><span class="o">:</span> <span class="mi">1000</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>6.2.4.9. 地理位置<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>GeoPoint 类型用于表示地理位置点，用经纬度唯一标记一个点，这是一个特殊的数据存储类型。注意，如果需要对类型为地理位置的字段进行查找，一定要建立地理位置索引。</p>
+<p>//传入经纬度构造一个地理位置字段值
+new db.Geo.Point(longitude, latitude)
+Null</p>
+<p>Null 相当于一个占位符，表示一个字段存在但是值为空。</p>
+</div>
+<div class="section" id="id6">
+<h2>6.2.4.10. 新增集合<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>该方法没有参数，如果集合已存在，则报错</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="nx">collName</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>新增文档
+方法1： collection.add(data)</p>
+<p>示例：</p>
+<p>参数      类型      必填      说明
+data    object  是       {_id: ‘10001’, ‘name’: ‘Ben’} _id 非必填</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ben&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>方法2： collection.doc().set(data)</p>
+<p>也可通过 set 方法新增一个文档，需先取得文档引用再调用 set 方法。
+如果文档不存在，set 方法会创建一个新文档。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">().</span><span class="nx">set</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Hey&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>6.2.4.11. 查询文档<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>支持 where()、limit()、skip()、orderBy()、get()、update()、field()、count() 等操作。</p>
+<p>只有当调用get() update()时才会真正发送请求。
+注：默认取前100条数据，最大取前100条数据。</p>
+<p>添加查询条件
+collection.where()
+参数</p>
+<p>设置过滤条件
+where 可接收对象作为参数，表示筛选出拥有和传入对象相同的 key-value 的文档。比如筛选出所有类型为计算机的、内存为 8g 的商品：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>如果要表达更复杂的查询，可使用高级查询指令，比如筛选出所有内存大于 8g 的计算机商品：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span> <span class="c1">// 取指令</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="c1">// 表示大于 8</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>获取查询数量</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>参数</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">count</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>响应参数</p>
+<p>字段      类型      必填      说明
+code    string  否       状态码，操作成功则不返回
+message string  否       错误描述
+total   Integer 否       计数结果
+requestId       string  否       请求序列号，用于错误排查
+设置记录数量
+collection.limit()</p>
+<p>参数说明</p>
+<p>参数      类型      必填      说明
+value   Integer 是       限制展示的数值
+使用示例</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>设置起始位置</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">skip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>参数说明</p>
+<p>参数      类型      必填      说明
+value   Integer 是       跳过展示的数据
+使用示例</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">skip</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>对结果排序</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>参数说明</p>
+<p>参数      类型      必填      说明
+field   string  是       排序的字段
+orderType       string  是       排序的顺序，升序(asc) 或 降序(desc)
+使用示例</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;asc&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>指定返回字段</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">field</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>参数说明</p>
+<p>参数      类型      必填      说明
+-       object  是       要过滤的字段，不返回传false，返回传true
+使用示例</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">field</span><span class="p">({</span> <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
+</pre></div>
+</div>
+<p>备注：只能指定要返回的字段或者不要返回的字段。即{‘a’: true, ‘b’: false}是一种错误的参数格式</p>
+</div>
+<div class="section" id="id8">
+<h2>6.2.4.12. 查询指令<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>eq
+表示字段等于某个值。eq 指令接受一个字面量 (literal)，可以是 number, boolean, string, object, array。</p>
+<p>比如筛选出所有自己发表的文章，除了用传对象的方式：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myOpenID</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;articles&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">_openid</span><span class="o">:</span> <span class="nx">myOpenID</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>还可以用指令：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="kr">const</span> <span class="nx">myOpenID</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;articles&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">_openid</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="nx">openid</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>注意 eq 指令比对象的方式有更大的灵活性，可以用于表示字段等于某个对象的情况，比如：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 这种写法表示匹配 stat.publishYear == 2018 且 stat.language == &#39;zh-CN&#39;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;articles&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">stat</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">publishYear</span><span class="o">:</span> <span class="mi">2018</span><span class="p">,</span>
+    <span class="nx">language</span><span class="o">:</span> <span class="s1">&#39;zh-CN&#39;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// 这种写法表示 stat 对象等于 { publishYear: 2018, language: &#39;zh-CN&#39; }</span>
+<span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;articles&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">stat</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">eq</span><span class="p">({</span>
+    <span class="nx">publishYear</span><span class="o">:</span> <span class="mi">2018</span><span class="p">,</span>
+    <span class="nx">language</span><span class="o">:</span> <span class="s1">&#39;zh-CN&#39;</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>neq
+字段不等于。neq 指令接受一个字面量 (literal)，可以是 number, boolean, string, object, array。</p>
+<p>如筛选出品牌不为 X 的计算机：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">brand</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">neq</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>gt
+字段大于指定值。</p>
+<p>如筛选出价格大于 2000 的计算机：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">price</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>gte
+字段大于或等于指定值。</p>
+<p>lt
+字段小于指定值。</p>
+<p>lte
+字段小于或等于指定值。</p>
+<p>in
+字段值在给定的数组中。</p>
+<p>筛选出内存为 8g 或 16g 的计算机商品：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="k">in</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>and
+表示需同时满足指定的两个或以上的条件。</p>
+<p>如筛选出内存大于 4g 小于 32g 的计算机商品：</p>
+<p>流式写法：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>前置写法：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">memory</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>or
+表示需满足所有指定条件中的至少一个。如筛选出价格小于 4000 或在 6000-8000 之间的计算机：</p>
+<p>流式写法：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">price</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">4000</span><span class="p">).</span><span class="nx">or</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">6000</span><span class="p">).</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">8000</span><span class="p">)))</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>前置写法：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;computer&#39;</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">price</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">or</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">4000</span><span class="p">),</span> <span class="nx">_</span><span class="p">.</span><span class="nx">and</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">6000</span><span class="p">),</span> <span class="nx">_</span><span class="p">.</span><span class="nx">lt</span><span class="p">(</span><span class="mi">8000</span><span class="p">)))</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>如果要跨字段 “或” 操作：(如筛选出内存 8g 或 cpu 3.2 ghz 的计算机)</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;goods&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">or</span><span class="p">(</span>
+  <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">memory</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">gt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">cpu</span><span class="o">:</span> <span class="mf">3.2</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>6.2.4.13. 删除文档<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 清理全部数据</span>
+<span class="nx">collection</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">promiseList</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nb">document</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">promiseList</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+  <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>6.2.4.14. 更新文档<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>6.2.4.14.1. 更新指定文档<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">().</span><span class="nx">update</span><span class="p">()</span>
+
+<span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;doc-id&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Hey&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>6.2.4.14.2. 更新文档，如果不存在则创建<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">().</span><span class="nx">set</span><span class="p">()</span>
+
+<span class="nx">collection</span><span class="p">.</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;doc-id&#39;</span><span class="p">).</span><span class="nx">set</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Hey&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>6.2.4.14.3. 批量更新文档<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>
+
+<span class="nx">collection</span><span class="p">.</span><span class="nx">where</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">&#39;hey&#39;</span><span class="p">)}).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>6.2.4.14.4. 更新指令<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<div class="section" id="set">
+<h4>6.2.4.14.4.1. set<a class="headerlink" href="#set" title="永久链接至标题">¶</a></h4>
+<p>更新指令。用于设定字段等于指定值。这种方法相比传入纯 JS 对象的好处是能够指定字段等于一个对象：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 以下方法只会更新 property.location 和 property.size，如果 property 对象中有</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;photo&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;doc-id&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">property</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">location</span><span class="o">:</span> <span class="s1">&#39;guangzhou&#39;</span><span class="p">,</span>
+      <span class="nx">size</span><span class="o">:</span> <span class="mi">8</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inc">
+<h4>6.2.4.14.4.2. inc<a class="headerlink" href="#inc" title="永久链接至标题">¶</a></h4>
+<p>更新指令。用于指示字段自增某个值，这是个原子操作，使用这个操作指令而不是先读数据、再加、再写回的好处是：</p>
+<p>原子性：多个用户同时写，对数据库来说都是将字段加一，不会有后来者覆写前者的情况
+减少一次网络请求：不需先读再写
+之后的 mul 指令同理。</p>
+<p>如给收藏的商品数量加一：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">_openid</span><span class="o">:</span> <span class="s1">&#39;my-open-id&#39;</span>
+<span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">favorites</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">inc</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mul">
+<h4>6.2.4.14.4.3. mul<a class="headerlink" href="#mul" title="永久链接至标题">¶</a></h4>
+<p>更新指令。用于指示字段自乘某个值。</p>
+<p>remove
+更新指令。用于表示删除某个字段。如某人删除了自己一条商品评价中的评分：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;comment-id&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">rating</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="push">
+<h4>6.2.4.14.4.4. push<a class="headerlink" href="#push" title="永久链接至标题">¶</a></h4>
+<p>向数组尾部追加元素，支持传入单个元素或数组</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;comment-id&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="c1">// users: _.push(&#39;aaa&#39;)</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;aaa&#39;</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">])</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pop">
+<h4>6.2.4.14.4.5. pop<a class="headerlink" href="#pop" title="永久链接至标题">¶</a></h4>
+<p>删除数组尾部元素</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;comments&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;comment-id&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unshift">
+<h4>6.2.4.14.4.6. unshift<a class="headerlink" href="#unshift" title="永久链接至标题">¶</a></h4>
+<p>向数组头部添加元素，支持传入单个元素或数组。使用同push</p>
+</div>
+<div class="section" id="shift">
+<h4>6.2.4.14.4.7. shift<a class="headerlink" href="#shift" title="永久链接至标题">¶</a></h4>
+<p>删除数组头部元素。使用同pop</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="storage.html" class="btn btn-neutral float-right" title="6.2.5. 存储" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="callFunction.html" class="btn btn-neutral float-left" title="6.2.3. 云函数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

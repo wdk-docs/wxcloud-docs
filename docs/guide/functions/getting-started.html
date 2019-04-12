@@ -108,7 +108,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -190,6 +191,7 @@
 </div>
 <p>project.config.json 的其他配置，详见文档</p>
 <p>完成指定之后，云函数的根目录的图标会变成 “云目录图标”，云函数根目录下的第一级目录（云函数目录）是与云函数名字相同的，如果对应的线上环境存在该云函数，则我们会用一个特殊的 “云图标” 标明</p>
+<img alt="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/images/ide_function_icon.png?t=19041015" src="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/images/ide_function_icon.png?t=19041015" />
 <p>接着，我们在云函数根目录上右键，在右键菜单中，可以选择创建一个新的 Node.js 云函数，我们将该云函数命名为 add。开发者工具在本地创建出云函数目录和入口 index.js 文件，同时在线上环境中创建出对应的云函数。创建成功后，工具会提示是否立即本地安装依赖，确定后工具会自动安装 wx-server-sdk。我们可以看到类似如下的一个云函数模板：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">cloud</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">)</span>
 <span class="o">//</span> <span class="n">云函数入口函数</span>

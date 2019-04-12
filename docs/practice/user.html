@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1. 用户管理 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.2. 小程序码" href="qrcode.html" />
+    <link rel="prev" title="7. 最佳实践" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 最佳实践</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1. 用户管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.1.1. 功能概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.1.2. 体验功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demo">7.1.3. 体验 DEMO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.1.4. DEMO 接入流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.1.5. 源码介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">7.1.5.1. 准备工作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">7.1.5.2. 用户登录、注册与信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.1.5.3. 用户授权</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">7.1.5.4. 数据解密</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">7.1.5.5. 退出登录</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qrcode.html">7.2. 小程序码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmpmsg.html">7.3. 模板消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pay.html">7.4. 微信支付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-audio.html">7.5. 音视频</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smart-image.html">7.6. 智能图像</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. 最佳实践</a> &raquo;</li>
+        
+      <li>7.1. 用户管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/practice/user.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7.1. 用户管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>7.1.1. 功能概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>本文档主要介绍用户管理功能，您可以通过本文示例体验用户注册、登录、退出登录功能。</p>
+</div>
+<div class="section" id="id3">
+<h2>7.1.2. 体验功能<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<img alt="https://main.qcloudimg.com/raw/c3bffdddfa54ecd95b5a569b10f71840.png" src="https://main.qcloudimg.com/raw/c3bffdddfa54ecd95b5a569b10f71840.png" />
+</div>
+<div class="section" id="demo">
+<h2>7.1.3. 体验 DEMO<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>本章的案例代码，请参考 <a class="reference external" href="https://github.com/TencentCloudBase/tcb-demo-basic">tcb-demo-basic</a> 。</p>
+</div>
+<div class="section" id="id4">
+<h2>7.1.4. DEMO 接入流程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>代码下载完成后，请按照以下步骤操作：</p>
+<ol class="arabic simple">
+<li><p>在云开发中创建好至少一个环境。</p></li>
+<li><p>在 app.js 文件中，如果使用默认环境，则没有改动。
+如果需要使用非默认环境，则需要在 wx.cloud.init 中传入环境 ID。
+如果使用非默认环境，在云函数的 cloud.init 处，也需要补充环境 ID。</p></li>
+</ol>
+<blockquote>
+<div><p>如下图所示：</p>
+<img alt="https://main.qcloudimg.com/raw/69d8d7590284cc80776021f3f8883948.png" src="https://main.qcloudimg.com/raw/69d8d7590284cc80776021f3f8883948.png" />
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="nx">env</span><span class="o">:</span> <span class="s1">&#39;xxxx&#39;</span><span class="p">,</span> <span class="c1">// 环境 id</span>
+  <span class="nx">traceUser</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>在云函数根目录 cloud/functions 中找到函数 user-login-register 和 user-session，
+在两者的 config 目录中新建 index.js，填入小程序的密钥 AppSecret，用 npm 安装两个云函数的依赖，并上传两个云函数。</p></li>
+</ol>
+<blockquote>
+<div><img alt="https://main.qcloudimg.com/raw/532124c3661e43c86cddca24a85ad508.png" src="https://main.qcloudimg.com/raw/532124c3661e43c86cddca24a85ad508.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>在云开发的数据库中，新建 collection，名为 users。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>7.1.5. 源码介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>7.1.5.1. 准备工作<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>用户管理，包括用户的信息（昵称、性别、头像等的获取）、注册、登录、鉴权等。
+本节主要介绍云开发如何操作用户管理。</p>
+<p>开发前，建议先阅读以下相关的文档：微信登录能力优化 和 获取用户信息。</p>
+<p>参考常用的小程序，例如知乎大学、百果园、摩拜等。</p>
+<img alt="https://main.qcloudimg.com/raw/085b0eee6a5533f80c4708eb29ad7c98.png" src="https://main.qcloudimg.com/raw/085b0eee6a5533f80c4708eb29ad7c98.png" />
+<p>基本的流程：</p>
+<ul class="simple">
+<li><p>用户授权小程序可获取用户的开放数据。</p></li>
+<li><p>选择登录方式（微信绑定的手机/用户的其它手机）。</p></li>
+<li><p>如果选用了微信绑定的手机，直接信任，注册/登录成功，而如果选用其它手机，则还需要通过发送短信进行手机验证。</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>7.1.5.2. 用户登录、注册与信息<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>用户的登录、注册、获取信息过程，涉及到以下接口。
+详情请参考 用户信息 文档。</p>
+<ul class="simple">
+<li><p>wx.getSetting，看看用户有没有授权小程序，可以获取昵称、头像、性别等的用户信息。</p></li>
+<li><p>wx.getUserInfo （旧版） / button （新版），授权后，可通过此接口/组件获取用户信息。</p></li>
+<li><p>wx.checkSession，获取 session_key 后，要检查 session_key 是否过期。</p></li>
+<li><p>如果 session_key 过期，则通过 wx.login 获取 code 后，在云函数中调用 code2Session 更新 session_key。</p></li>
+<li><p>通过 button 组件，获取手机号码加密数据，并在云函数中通过之前取得的 session_key 进行解密获取真实手机号码。</p></li>
+</ul>
+<p>流程图如下所示：</p>
+<img alt="https://main.qcloudimg.com/raw/e2cd0d8be1e4bb3809ce1eedf8d4f820.png" src="https://main.qcloudimg.com/raw/e2cd0d8be1e4bb3809ce1eedf8d4f820.png" />
+</div>
+<div class="section" id="id8">
+<h3>7.1.5.3. 用户授权<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>对于小程序来说，必须进行用户授权，才能在后续中获取用户的开放数据。
+因此，我们在 onLoad 生命周期里，做了以下处理：</p>
+<ul class="simple">
+<li><p><strong>旧版：</strong> 做授权的检测。</p></li>
+<li><p><strong>新版：</strong> 在模板文件中，则设置授权按钮。</p></li>
+</ul>
+<p>授权后，请将用户数据存入临时的对象中，示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">onLoad</span><span class="o">:</span> <span class="nx">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">db</span> <span class="o">=</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">checkAuthSetting</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">checkUser</span><span class="p">();</span>
+<span class="p">},</span>
+
+<span class="c1">// 检测权限，在旧版小程序若未授权会自己弹起授权</span>
+<span class="nx">checkAuthSetting</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">wx</span><span class="p">.</span><span class="nx">getSetting</span><span class="p">({</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">authSetting</span><span class="p">[</span><span class="s1">&#39;scope.userInfo&#39;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">wx</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">({</span>
+          <span class="nx">success</span><span class="o">:</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">)</span> <span class="p">{</span>
+              <span class="kr">const</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">userInfo</span>
+              <span class="c1">// 将用户数据放在临时对象中，用于后续写入数据库</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">setUserTemp</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span>
+            <span class="p">}</span>
+
+            <span class="kr">const</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">userInfo</span> <span class="o">||</span> <span class="p">{}</span>
+            <span class="nx">userInfo</span><span class="p">.</span><span class="nx">isLoaded</span> <span class="o">=</span> <span class="kc">true</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+              <span class="nx">userInfo</span><span class="p">,</span>
+              <span class="nx">isAuthorized</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">})</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+          <span class="nx">userInfo</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">isLoaded</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">},</span>
+
+<span class="c1">// 设置临时数据，待 “真正登录” 时将用户数据写入 collection &quot;users&quot; 中</span>
+<span class="nx">setUserTemp</span><span class="p">(</span><span class="nx">userInfo</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">isAuthorized</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">cb</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{})</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+    <span class="nx">userTemp</span><span class="o">:</span> <span class="nx">userInfo</span><span class="p">,</span>
+    <span class="nx">isAuthorized</span><span class="p">,</span>
+  <span class="p">},</span> <span class="nx">cb</span><span class="p">)</span>
+<span class="p">},</span>
+
+<span class="c1">// 手动获取用户数据</span>
+<span class="nx">async</span> <span class="nx">bindGetUserInfoNew</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">userInfo</span>
+  <span class="c1">// 将用户数据放在临时对象中，用于后续写入数据库</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setUserTemp</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span>
+  <span class="na">wx:if</span><span class="o">=</span><span class="s">&quot;{{userInfo.isLoaded &amp;&amp; !isAuthorized &amp;&amp; !userInfo.nickName}}&quot;</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">&quot;weui-btn&quot;</span>
+  <span class="na">type</span><span class="o">=</span><span class="s">&quot;primary&quot;</span>
+  <span class="na">open-type</span><span class="o">=</span><span class="s">&quot;getUserInfo&quot;</span>
+  <span class="na">bindgetuserinfo</span><span class="o">=</span><span class="s">&quot;bindGetUserInfoNew&quot;</span>
+<span class="p">&gt;</span>
+  授权微信后登录
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>7.1.5.4. 数据解密<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>由于某些数据的安全性问题，需要在后台服务进行解密，譬如手机号码，我们可以借助云开发的云函数去完成。</p>
+<p>通过 checkUser 方法，检测 session_key 是否已经过期；如果过期，则重新设置，并将用户写入数据库中。
+此逻辑通过 updateSession 方法和云函数 user-session 共同完成。</p>
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 检测小程序的 session 是否有效</span>
+<span class="nx">async</span> <span class="nx">checkUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">Users</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">users</span><span class="p">)</span>
+
+  <span class="nx">wx</span><span class="p">.</span><span class="nx">checkSession</span><span class="p">({</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// session_key 未过期，并且在本生命周期一直有效</span>
+      <span class="c1">// 数据里有用户，则直接获取</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">checkSession</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">expireTime</span> <span class="o">||</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setUserInfo</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setUserInfo</span><span class="p">()</span>
+        <span class="c1">// 强制更新并新增了用户</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">updateSession</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">fail</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// session_key 已经失效，需要重新执行登录流程</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">updateSession</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">},</span>
+
+<span class="c1">// 更新 session_key</span>
+<span class="nx">updateSession</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">wx</span><span class="p">.</span><span class="nx">login</span><span class="p">({</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;user-session&#39;</span><span class="p">,</span>
+          <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">code</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">code</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>以下是云函数 user-session 的源码，它的主要作用是通过 wXMINIUser.codeToSession 方法获取最新 session_key 。</p>
+<ul class="simple">
+<li><p>如果有数据，则仅更新 session_key，</p></li>
+<li><p>如果没数据则添加该用户并插入 sesison_key。
+此 session_key 与用户的数据关联，为后续进行数据解密打下了基础。</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 云函数入口函数</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">()</span>
+
+  <span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">OPENID</span><span class="p">,</span>
+    <span class="nx">APPID</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">getWXContext</span><span class="p">()</span>
+
+  <span class="kr">const</span> <span class="nx">wXMINIUser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WXMINIUser</span><span class="p">({</span>
+    <span class="nx">appId</span><span class="o">:</span> <span class="nx">APPID</span><span class="p">,</span>
+    <span class="nx">secret</span>
+  <span class="p">})</span>
+
+  <span class="kr">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="c1">// 从小程序端的 wx.login 接口传过来的 code 值</span>
+  <span class="kr">const</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wXMINIUser</span><span class="p">.</span><span class="nx">codeToSession</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// 查询有没用户数据</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+      <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+    <span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+
+    <span class="c1">// 如果有数据，则只是更新 `session_key`，如果没数据则添加该用户并插入 `sesison_key`</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+        <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+      <span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">session_key</span><span class="o">:</span> <span class="nx">info</span><span class="p">.</span><span class="nx">session_key</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">add</span><span class="p">({</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">session_key</span><span class="o">:</span> <span class="nx">info</span><span class="p">.</span><span class="nx">session_key</span><span class="p">,</span>
+          <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+      <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;login success&#39;</span><span class="p">,</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>当我们在数据中存入了用户的一条空数据以及它相关的 session_key 后，我们可以引导用户通过小程序获取微信绑定的手机号，实现快速登录。
+在模板文件中，我们添加了一个 button 组件，并将 open-type 设置为 getPhoneNumber。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>&lt;button
+  wx:if=&quot;{{userInfo.isLoaded &amp;&amp; isAuthorized &amp;&amp; !userInfo.phoneNumber}}&quot;
+  class=&quot;weui-btn&quot;
+  type=&quot;primary&quot;
+  open-type=&quot;getPhoneNumber&quot;
+  bindgetphonenumber=&quot;bindGetPhoneNumber&quot;
+&gt;
+  微信快速登录
+&lt;/button&gt;
+</pre></div>
+</div>
+<p>单击【微信快速登录】后，请调用 bindGetPhoneNumber，将存放于临时对象的用户开放数据，
+以及加密的微信手机数据，发送到 user-login-register 进行解密，并存入用户的数据中。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取用户手机号码</span>
+<span class="nx">async</span> <span class="nx">bindGetPhoneNumber</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// console.log(e.detail);</span>
+  <span class="nx">wx</span><span class="p">.</span><span class="nx">showLoading</span><span class="p">({</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;正在获取&#39;</span><span class="p">,</span>
+  <span class="p">})</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">userTemp</span>
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">cloud</span><span class="p">.</span><span class="nx">callFunction</span><span class="p">({</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;user-login-register&#39;</span><span class="p">,</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">encryptedData</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">encryptedData</span><span class="p">,</span>
+        <span class="nx">iv</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">iv</span><span class="p">,</span>
+        <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">nickName</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">nickName</span><span class="p">,</span>
+          <span class="nx">avatarUrl</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">,</span>
+          <span class="nx">gender</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">gender</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setUserInfo</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">hideLoading</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">hideLoading</span><span class="p">()</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">showToast</span><span class="p">({</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;获取手机号码失败，请重试&#39;</span><span class="p">,</span>
+      <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>详细解密数据的原理，请参考 <a class="reference external" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/signature.html">开放数据校验与解密</a> 。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">WXBizDataCrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./WXBizDataCrypt&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="p">{</span>
+  <span class="nx">appId</span><span class="p">,</span>
+  <span class="nx">secret</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./config&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cloud</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// 开发侧控制登录态有效时间</span>
+
+<span class="nx">cloud</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+
+<span class="c1">// 云函数入口函数</span>
+<span class="kr">const</span> <span class="nx">cloud</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wx-server-sdk&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">WXBizDataCrypt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./WXBizDataCrypt&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span> <span class="c1">// 开发侧控制登录态有效时间</span>
+
+<span class="nx">cloud</span><span class="p">.</span><span class="nx">init</span><span class="p">()</span>
+
+<span class="c1">// 云函数入口函数</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span>
+    <span class="nx">OPENID</span><span class="p">,</span>
+    <span class="nx">APPID</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">getWXContext</span><span class="p">()</span>
+
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">database</span><span class="p">()</span>
+  <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+    <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+  <span class="p">}).</span><span class="nx">get</span><span class="p">()</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">users</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;user not found&#39;</span><span class="p">,</span>
+      <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 进行数据解密</span>
+  <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">users</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="kr">const</span> <span class="nx">wxBizDataCrypt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WXBizDataCrypt</span><span class="p">(</span><span class="nx">APPID</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">session_key</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">wxBizDataCrypt</span><span class="p">.</span><span class="nx">decryptData</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">encryptedData</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">iv</span><span class="p">)</span>
+
+  <span class="kr">const</span> <span class="nx">expireTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="nx">duration</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// 将用户数据和手机号码数据更新到该用户数据中</span>
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+      <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+    <span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="p">...</span><span class="nx">event</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+        <span class="nx">phoneNumber</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">phoneNumber</span><span class="p">,</span>
+        <span class="nx">expireTime</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">stats</span><span class="p">.</span><span class="nx">updated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;update failure&#39;</span><span class="p">,</span>
+        <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+      <span class="nx">code</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="p">...</span><span class="nx">event</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">data</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>7.1.5.5. 退出登录<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>如果不需要用户退出登录，单纯依赖 wx.checkSession 就可以作为用户登录态失效的办法。</p></li>
+<li><p>如果需要允许用户主动退出，请参考以下配置方法。</p></li>
+</ul>
+<p>您可以在用户数据里添加一个 expireTime 字段，用于记录用户登录态失效的时间，
+在云函数 user-login-register 里就有 expireTime 的相关配置和写入逻辑。
+示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 节选自 `user-login-register`</span>
+<span class="kr">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// 开发侧控制登录态有效时间，此处表时24小时，即1天</span>
+
+<span class="c1">// ...... 此处省略其它代码</span>
+
+<span class="c1">// 将 expireTime 写入用户数据里</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span>
+  <span class="nx">_openid</span><span class="o">:</span> <span class="nx">OPENID</span>
+<span class="p">}).</span><span class="nx">update</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">event</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+    <span class="nx">phoneNumber</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">phoneNumber</span><span class="p">,</span>
+    <span class="nx">expireTime</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>在 checkUser 方法中，您也可以调用 checkSession 去检测用户数据中的 expireTime 是否过期，
+如果过期，则不会再展示用户数据，并更新一下 session_key。</p>
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 检查用户是否登录态还没过期</span>
+<span class="nx">checkSession</span><span class="p">(</span><span class="nx">expireTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">expireTime</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>以下此方法，则是用户主动单击退出登录按钮后，触发的方法，会将用户的 expireTime 设零过期。</p>
+<p>示例代码如下：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// 退出登录</span>
+<span class="nx">async</span> <span class="nx">bindLogout</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">userInfo</span>
+
+  <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">_id</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">expireTime</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">setUserInfo</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>至此，您已基本完成一个简单有效的用户注册、登录页面。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qrcode.html" class="btn btn-neutral float-right" title="7.2. 小程序码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="7. 最佳实践" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

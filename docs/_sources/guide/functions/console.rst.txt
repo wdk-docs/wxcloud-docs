@@ -6,7 +6,7 @@
 
 云开发提供了云函数测试功能，可以方便地调试你的代码。在控制台的对应云函数的管理面板中，点击 “测试” 按钮即可打开测试弹窗。
 
-
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/functions/function_test.png?t=19041015
 
 测试弹窗
 ----------
@@ -20,10 +20,11 @@
 
 在这里可以查看云函数的调用日志，方便开发者对开发调试。
 
-
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/functions/function_log.png?t=19041015
 
 监控
 ------
 
 在这里可以查看云函数的调用次数、运行时间、错误次数。并支持将这些数据导出。
 
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/functions/function_monitor.png?t=19041015

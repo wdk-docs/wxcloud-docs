@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. 术语表 &mdash; wxcloud 2019.04.09 文档</title>
+  <title>9. 术语表 &mdash; wxcloud 2019.04.09 文档</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="5.5.1. callFunction" href="server-api/functions/callFunction.html" /> 
+    <link rel="prev" title="8.4. 环境类" href="faq/env.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +86,10 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practice/index.html">7. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. 术语表</a></li>
 </ul>
 
             
@@ -132,7 +135,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>6. 术语表</li>
+      <li>9. 术语表</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,11 +155,18 @@
            <div itemprop="articleBody">
             
   <div class="section" id="glossary">
-<span id="id1"></span><h1>6. 术语表<a class="headerlink" href="#glossary" title="永久链接至标题">¶</a></h1>
+<span id="id1"></span><h1>9. 术语表<a class="headerlink" href="#glossary" title="永久链接至标题">¶</a></h1>
 <dl class="glossary simple">
 <dt id="term">小程序</dt><dd><p>什么是小程序</p>
 </dd>
 <dt id="term-1">版本</dt><dd><p>指的小程序基础库的版本</p>
+</dd>
+<dt id="term-2">环境</dt><dd><p>资源环境是您在开发小程序过程中所用到资源集合，包括数据库、文件存储等。
+每个环境的资源是独立且相互隔离的，您可以根据自身需求创建多个环境，以用于开发、测试及生产等多种场景。
+使用 TCB 的服务之前，您需要先创建您的资源环境。</p>
+</dd>
+<dt id="term-id">环境 ID</dt><dd><p>环境 ID 是环境的唯一标识。
+当开发者的账户下存在多个资源环境时，需要通过环境 ID 来对指定环境中的数据库及文件存储进行读写调用。</p>
 </dd>
 </dl>
 </div>
@@ -170,7 +180,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="server-api/functions/callFunction.html" class="btn btn-neutral float-left" title="5.5.1. callFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="faq/env.html" class="btn btn-neutral float-left" title="8.4. 环境类" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

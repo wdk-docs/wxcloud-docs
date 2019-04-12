@@ -5,7 +5,8 @@
 
 要导入数据，需打开云开发控制台，切换到 “数据库” 标签页，并选择要导入数据的集合，点击 “导入” 按钮。
 
-数据库
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/guide/database/cloudconsole-database-import-dialog.jpg?t=19041015
+    :alt: 数据库
 
 选择要导入的 CSV 或者 JSON 文件，以及冲突处理模式，点击 “导入” 按钮即可开始导入。
 
@@ -49,4 +50,5 @@ Upsert 则会判断有无该条记录，如果有则更新记录，否则就插�
 
 导入完成后，可以在提示信息中看到本次导入记录的情况。
 
-数据库
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/guide/database/cloudconsole-database-import-success.jpg?t=19041015
+   :alt: 数据库

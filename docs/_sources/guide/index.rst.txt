@@ -6,7 +6,7 @@
 下面我们将分以下部分介绍如何上手使用云能力：
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :glob:
 
    console

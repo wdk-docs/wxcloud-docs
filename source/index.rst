@@ -13,6 +13,9 @@
    reference/index
    client-api/index
    server-api/index
+   sdk/index
+   practice/index
+   faq/index
 
    glossary
 

@@ -2,11 +2,12 @@
 =======
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :glob:
 
    errcode
    quota
+   billing
    changelog
    changelog-cloud-sdk
    changelog-server-sdk

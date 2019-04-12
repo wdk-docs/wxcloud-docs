@@ -37,7 +37,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="4.1. 初始化" href="init.html" />
-    <link rel="prev" title="3.6. IDE 云开发 &amp; 云控制台更新日志" href="../reference/changelog-ide.html" /> 
+    <link rel="prev" title="3.7. IDE 云开发 &amp; 云控制台更新日志" href="../reference/changelog-ide.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,7 +94,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk/index.html">6. SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practice/index.html">7. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. 术语表</a></li>
 </ul>
 
             
@@ -176,8 +179,49 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="init.html">4.1. 初始化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database/index.html">4.2. 数据库</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="database/collection/index.html">4.2.1. 集合</a></li>
-<li class="toctree-l2"><a class="reference internal" href="database/command/index.html">4.2.2. 指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database/collection/index.html">4.2.1. 集合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/add.html">4.2.1.1. add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/update.html">4.2.1.2. update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/field.html">4.2.1.3. field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/doc/index.html">4.2.1.4. doc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="database/collection/doc/get.html">4.2.1.4.1. get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database/collection/doc/set.html">4.2.1.4.2. set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database/collection/doc/update.html">4.2.1.4.3. update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database/collection/doc/remove.html">4.2.1.4.4. remove</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/get.html">4.2.1.5. get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/count.html">4.2.1.6. count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/where.html">4.2.1.7. where</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/limit.html">4.2.1.8. limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/orderBy.html">4.2.1.9. orderBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/collection/skip.html">4.2.1.10. skip</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database/command/index.html">4.2.2. 指令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database/command/eq.html">4.2.2.1. eq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/neq.html">4.2.2.2. neq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/lt.html">4.2.2.3. lt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/lte.html">4.2.2.4. lte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/gt.html">4.2.2.5. gt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/gte.html">4.2.2.6. gte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/in.html">4.2.2.7. in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/nin.html">4.2.2.8. nin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/inc.html">4.2.2.9. inc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/mul.html">4.2.2.10. mul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/and.html">4.2.2.11. and</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/or.html">4.2.2.12. or</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/pop.html">4.2.2.13. pop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/push.html">4.2.2.14. push</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/shift.html">4.2.2.15. shift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/unshift.html">4.2.2.16. unshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/remove.html">4.2.2.17. remove</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/set.html">4.2.2.18. set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/geoIntersects.html">4.2.2.19. geoIntersects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/geoNear.html">4.2.2.20. geoNear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database/command/geoWithin.html">4.2.2.21. geoWithin</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="database/db.geo.html">4.2.3. db.Geo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database/db.serverDate.html">4.2.4. db.serverDate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database/db.regexp.html">4.2.5. db.RegExp</a></li>
@@ -210,7 +254,7 @@
         <a href="init.html" class="btn btn-neutral float-right" title="4.1. 初始化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../reference/changelog-ide.html" class="btn btn-neutral float-left" title="3.6. IDE 云开发 &amp; 云控制台更新日志" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../reference/changelog-ide.html" class="btn btn-neutral float-left" title="3.7. IDE 云开发 &amp; 云控制台更新日志" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

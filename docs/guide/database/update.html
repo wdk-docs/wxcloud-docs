@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="data-type.html">2.3.2. 数据类型</a></li>
 <li class="toctree-l3"><a class="reference internal" href="permission.html">2.3.3. 权限控制</a></li>
 <li class="toctree-l3"><a class="reference internal" href="init.html">2.3.4. 初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据 ref</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add.html">2.3.5. 插入数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="read.html">2.3.6. 查询数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query.html">2.3.7. 指令</a></li>
 <li class="toctree-l3"><a class="reference internal" href="query-array-object.html">2.3.8. 查询数组和对象</a></li>
@@ -114,7 +114,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">6. 术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">6. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. 术语表</a></li>
 </ul>
 
             
@@ -229,7 +230,9 @@ unshift 如字段值为数组，往数组头部增加指定值
 <span class="p">})</span>
 </pre></div>
 </div>
-<p>用 inc 指令而不是取出值、加 10 再写进去的好处在于这个写操作是个原子操作，不会受到并发写的影响，比如同时有两名用户 A 和 B 取了同一个字段值，然后分别加上 10 和 20 再写进数据库，那么这个字段最终结果会是加了 20 而不是 30。如果使用 inc 指令则不会有这个问题。</p>
+<p>用 inc 指令而不是取出值、加 10 再写进去的好处在于这个写操作是个原子操作，不会受到并发写的影响，
+比如同时有两名用户 A 和 B 取了同一个字段值，然后分别加上 10 和 20 再写进数据库，
+那么这个字段最终结果会是加了 20 而不是 30。如果使用 inc 指令则不会有这个问题。</p>
 <p>如果字段是个数组，那么我们可以使用 push、pop、shift 和 unshift 对数组进行原子更新操作，比如给一条待办事项加多一个标签：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;todo-identifiant-aleatoire&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
@@ -242,7 +245,8 @@ unshift 如字段值为数组，往数组头部增加指定值
 <span class="p">})</span>
 </pre></div>
 </div>
-<p>可能读者已经注意到我们提供了 set 指令，这个指令有什么用呢？这个指令的用处在于更新一个字段值为另一个对象。比如如下语句是更新 style.color 字段为 ‘blue’ 而不是把 style 字段更新为 { color: ‘blue’ } 对象：</p>
+<p>可能读者已经注意到我们提供了 set 指令，这个指令有什么用呢？这个指令的用处在于更新一个字段值为另一个对象。
+比如如下语句是更新 style.color 字段为 ‘blue’ 而不是把 style 字段更新为 { color: ‘blue’ } 对象：</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">command</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;todo-identifiant-aleatoire&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
   <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>

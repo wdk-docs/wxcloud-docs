@@ -60,7 +60,8 @@
 - 云函数：查看云函数列表、配置、日志和监控
 - 统计分析：查看云开发资源具体使用统计信息
 
-云开发控制台
+.. image:: https://developers.weixin.qq.com/miniprogram/dev/wxcloud/res/intro/console_main.png?t=19041015
+   :alt: 云开发控制台
 
 资源环境
 ----------

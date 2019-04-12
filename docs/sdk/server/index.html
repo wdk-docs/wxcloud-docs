@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2. 服务端 &mdash; wxcloud 2019.04.09 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.2.1. 概述" href="overview.html" />
+    <link rel="prev" title="6.1.2. 微信小程序 SDK" href="../client/wxapp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> wxcloud
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../basis/index.html">1. 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/index.html">2. 指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">3. 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client-api/index.html">4. 小程序端 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server-api/index.html">5. 服务端 API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. SDK</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../client/index.html">6.1. 客户端</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. 服务端</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">6.2.1. 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="init.html">6.2.2. 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="callFunction.html">6.2.3. 云函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">6.2.4. 数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html">6.2.5. 存储</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../practice/index.html">7. 最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">8. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">9. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wxcloud</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. SDK</a> &raquo;</li>
+        
+      <li>6.2. 服务端</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/sdk/server/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6.2. 服务端<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">6.2.1. 概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id2">6.2.1.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id3">6.2.1.2. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id4">6.2.1.3. 应用初始化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">6.2.2. 初始化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="callFunction.html">6.2.3. 云函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">6.2.4. 数据库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id2">6.2.4.1. 获取数据库的引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id3">6.2.4.2. 获取集合的引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#collection">6.2.4.3. 集合 Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#record-document">6.2.4.4. 记录 Record / Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#query-command">6.2.4.5. 查询筛选指令 Query Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#update-command">6.2.4.6. 字段更新指令 Update Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id4">6.2.4.7. 支持的数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#date">6.2.4.8. 时间 Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id5">6.2.4.9. 地理位置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id6">6.2.4.10. 新增集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id7">6.2.4.11. 查询文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id8">6.2.4.12. 查询指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id9">6.2.4.13. 删除文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#id10">6.2.4.14. 更新文档</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="database.html#id11">6.2.4.14.1. 更新指定文档</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#id12">6.2.4.14.2. 更新文档，如果不存在则创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#id13">6.2.4.14.3. 批量更新文档</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html#id14">6.2.4.14.4. 更新指令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="database.html#set">6.2.4.14.4.1. set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#inc">6.2.4.14.4.2. inc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#mul">6.2.4.14.4.3. mul</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#push">6.2.4.14.4.4. push</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#pop">6.2.4.14.4.5. pop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#unshift">6.2.4.14.4.6. unshift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="database.html#shift">6.2.4.14.4.7. shift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">6.2.5. 存储</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#id2">6.2.5.1. 上传文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#id3">6.2.5.2. 获取文件下载链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#id4">6.2.5.3. 删除文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#id5">6.2.5.4. 下载文件</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="overview.html" class="btn btn-neutral float-right" title="6.2.1. 概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../client/wxapp.html" class="btn btn-neutral float-left" title="6.1.2. 微信小程序 SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-插入数据 :wxcloud:`ref <guide/database/add>`
+:wxcloud:`插入数据 <guide/database/add>`
 ============================================
 
 可以通过在集合对象上调用 add(:js:func:`add`) 方法往集合中插入一条记录。
